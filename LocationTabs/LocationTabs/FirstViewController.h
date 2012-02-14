@@ -15,5 +15,4 @@
 - (IBAction)stopTrackingLocation;
 @property (weak, nonatomic) IBOutlet UITextView *textField;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-
 @end
