@@ -10,9 +10,12 @@
 #import <MapKit/MapKit.h>
 
 @interface ViewController : UIViewController <MKMapViewDelegate>
-- (IBAction)userTappedMap:(UITapGestureRecognizer *)sender;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) CLLocationCoordinate2D *coordinates;
+@property (nonatomic) NSUInteger coordinateCount;
+- (IBAction)userTappedMap:(UITapGestureRecognizer *)sender;
 - (IBAction)clearPoints:(id)sender;
 - (IBAction)connectPoints:(id)sender;
+- (IBAction)makePolygon:(id)sender;
 
 @end

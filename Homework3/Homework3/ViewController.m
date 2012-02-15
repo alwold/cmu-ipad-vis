@@ -12,8 +12,12 @@
 #define LATITUDE 33.306389
 #define LONGITUDE -112.013333
 
+#define MAX_POINTS 100
+
 @implementation ViewController
 @synthesize mapView;
+@synthesize coordinates;
+@synthesize coordinateCount;
 
 - (void)didReceiveMemoryWarning
 {
@@ -28,10 +32,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.mapView.delegate = self;
-//	MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-//	annotation.coordinate = CLLocationCoordinate2DMake(LATITUDE, LONGITUDE);
-//	annotation.title = @"My House";
-//	[self.mapView addAnnotation:annotation];
+	self.coordinates = malloc(sizeof(CLLocationCoordinate2D)*MAX_POINTS);
+	self.coordinateCount = 0;
 }
 
 - (void)viewDidUnload
@@ -40,6 +42,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+	free(coordinates);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,12 +72,13 @@
 }
 
 - (IBAction)userTappedMap:(UITapGestureRecognizer *)sender {
-	if (sender.state == UIGestureRecognizerStateEnded) {
+	if (sender.state == UIGestureRecognizerStateEnded && coordinateCount < MAX_POINTS) {
 		CGPoint point = [sender locationInView:self.mapView];
 		CLLocationCoordinate2D location = [mapView convertPoint:point toCoordinateFromView:mapView];
 		MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 		annotation.coordinate = location;
 		[self.mapView addAnnotation:annotation];
+		self.coordinates[coordinateCount++] = location;
 		NSLog(@"tap! %f %f", location.latitude, location.longitude);
 	 }
 }
@@ -93,26 +97,29 @@
 - (IBAction)clearPoints:(id)sender {
 	[self.mapView removeOverlays:[self.mapView overlays]];
 	[self.mapView removeAnnotations:[self.mapView annotations]];
+	coordinateCount = 0;
 }
 
 - (IBAction)connectPoints:(id)sender {
-	NSLog(@"Allocate space for %d points", self.mapView.annotations.count);
-	CLLocationCoordinate2D *points = malloc(sizeof(CLLocationCoordinate2D)*self.mapView.annotations.count);
-	int i = 0;
-	for (id point in self.mapView.annotations) {
-		CLLocationCoordinate2D coordinate = [((MKPointAnnotation *) point) coordinate];
-		points[i].latitude = coordinate.latitude;
-		points[i].longitude = coordinate.longitude;
-		i++;
-	}
-	MKPolyline *line = [MKPolyline polylineWithCoordinates:points count:i];
+	MKPolyline *line = [MKPolyline polylineWithCoordinates:coordinates count:coordinateCount];
 	[self.mapView addOverlay:line];
+}
+
+- (IBAction)makePolygon:(id)sender {
+	MKPolygon *polygon = [MKPolygon polygonWithCoordinates:coordinates count:coordinateCount];
+	[self.mapView addOverlay:polygon];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
 	if ([overlay isKindOfClass:[MKPolyline class]]) {
 		MKPolylineView *view = [[MKPolylineView alloc] initWithPolyline:(MKPolyline *)overlay];
 		view.strokeColor = [UIColor blueColor];
+		view.lineWidth = 2;
+		return view;
+	} else if ([overlay isKindOfClass:[MKPolygon class]]) {
+		MKPolygonView *view = [[MKPolygonView alloc] initWithPolygon:(MKPolygon *)overlay];
+		view.fillColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
+		view.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.2];
 		view.lineWidth = 2;
 		return view;
 	}

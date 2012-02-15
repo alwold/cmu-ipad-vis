@@ -35,6 +35,11 @@
                                             <action selector="connectPoints:" destination="2" id="5MC-1V-68A"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Polygon" id="yfs-31-6y2">
+                                        <connections>
+                                            <action selector="makePolygon:" destination="2" id="Bkg-yL-Ynn"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -58,6 +63,7 @@
             <relationships>
                 <relationship kind="action" name="clearPoints:"/>
                 <relationship kind="action" name="connectPoints:"/>
+                <relationship kind="action" name="makePolygon:"/>
                 <relationship kind="action" name="userTappedMap:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
