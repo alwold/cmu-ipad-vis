@@ -13,5 +13,6 @@
 @interface ZPMasterViewController : UITableViewController
 
 @property (strong, nonatomic) ZPDetailViewController *detailViewController;
+@property (strong, nonatomic) NSDictionary *statesAndZipsDictionary;
 
 @end

@@ -13,6 +13,7 @@
 @implementation ZPMasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize statesAndZipsDictionary = _statesAndZipsDictionary;
 
 - (void)awakeFromNib
 {
@@ -20,6 +21,11 @@
 	    self.clearsSelectionOnViewWillAppear = NO;
 	    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 	}
+	
+	NSBundle *mainBundle = [NSBundle mainBundle];
+	NSURL *censusDataURL = [mainBundle URLForResource:@"Census" withExtension:@"plist"];
+	self.statesAndZipsDictionary = [NSDictionary dictionaryWithContentsOfURL:censusDataURL];
+	
     [super awakeFromNib];
 }
 
@@ -115,5 +121,19 @@
     return YES;
 }
 */
+
+#pragma mark <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return self.statesAndZipsDictionary.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString *identifier = @"StateCell";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+	
+	NSArray *states = [self.statesAndZipsDictionary allKeys];
+	cell.textLabel.text = [states objectAtIndex:[indexPath row]];
+	return cell;
+}
 
 @end

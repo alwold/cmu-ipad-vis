@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8871000114EC573E00546E36 /* Census.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8871000014EC573E00546E36 /* Census.plist */; };
 		8871FFDB14EC396900546E36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871FFDA14EC396900546E36 /* UIKit.framework */; };
 		8871FFDD14EC396900546E36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871FFDC14EC396900546E36 /* Foundation.framework */; };
 		8871FFDF14EC396900546E36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871FFDE14EC396900546E36 /* CoreGraphics.framework */; };
@@ -17,9 +18,11 @@
 		8871FFF114EC396900546E36 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8871FFEF14EC396900546E36 /* MainStoryboard_iPad.storyboard */; };
 		8871FFF414EC396900546E36 /* ZPMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871FFF314EC396900546E36 /* ZPMasterViewController.m */; };
 		8871FFF714EC396900546E36 /* ZPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871FFF614EC396900546E36 /* ZPDetailViewController.m */; };
+		8871FFFF14EC568F00546E36 /* ZPZipsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871FFFE14EC568F00546E36 /* ZPZipsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8871000014EC573E00546E36 /* Census.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Census.plist; sourceTree = "<group>"; };
 		8871FFD614EC396900546E36 /* Zip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8871FFDA14EC396900546E36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8871FFDC14EC396900546E36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,6 +39,8 @@
 		8871FFF314EC396900546E36 /* ZPMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPMasterViewController.m; sourceTree = "<group>"; };
 		8871FFF514EC396900546E36 /* ZPDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPDetailViewController.h; sourceTree = "<group>"; };
 		8871FFF614EC396900546E36 /* ZPDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPDetailViewController.m; sourceTree = "<group>"; };
+		8871FFFD14EC568F00546E36 /* ZPZipsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPZipsTableViewController.h; sourceTree = "<group>"; };
+		8871FFFE14EC568F00546E36 /* ZPZipsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPZipsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 		8871FFCB14EC396900546E36 = {
 			isa = PBXGroup;
 			children = (
+				8871000014EC573E00546E36 /* Census.plist */,
 				8871FFE014EC396900546E36 /* Zip */,
 				8871FFD914EC396900546E36 /* Frameworks */,
 				8871FFD714EC396900546E36 /* Products */,
@@ -85,6 +91,8 @@
 				8871FFE914EC396900546E36 /* ZPAppDelegate.h */,
 				8871FFEA14EC396900546E36 /* ZPAppDelegate.m */,
 				8871FFEC14EC396900546E36 /* MainStoryboard_iPhone.storyboard */,
+				8871FFFD14EC568F00546E36 /* ZPZipsTableViewController.h */,
+				8871FFFE14EC568F00546E36 /* ZPZipsTableViewController.m */,
 				8871FFEF14EC396900546E36 /* MainStoryboard_iPad.storyboard */,
 				8871FFF214EC396900546E36 /* ZPMasterViewController.h */,
 				8871FFF314EC396900546E36 /* ZPMasterViewController.m */,
@@ -159,6 +167,7 @@
 				8871FFE514EC396900546E36 /* InfoPlist.strings in Resources */,
 				8871FFEE14EC396900546E36 /* MainStoryboard_iPhone.storyboard in Resources */,
 				8871FFF114EC396900546E36 /* MainStoryboard_iPad.storyboard in Resources */,
+				8871000114EC573E00546E36 /* Census.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +182,7 @@
 				8871FFEB14EC396900546E36 /* ZPAppDelegate.m in Sources */,
 				8871FFF414EC396900546E36 /* ZPMasterViewController.m in Sources */,
 				8871FFF714EC396900546E36 /* ZPDetailViewController.m in Sources */,
+				8871FFFF14EC568F00546E36 /* ZPZipsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

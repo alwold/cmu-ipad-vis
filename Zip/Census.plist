@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>New Hampshire</key>
+	<array>
+		<string>03744</string>
+		<string>03755</string>
+		<string>03756</string>
+	</array>
+	<key>New Jersey</key>
+	<array/>
+	<key>Pennsylvania</key>
+	<array/>
+</dict>
+</plist>
