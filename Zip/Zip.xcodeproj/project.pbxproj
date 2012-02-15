@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8871FFDB14EC396900546E36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871FFDA14EC396900546E36 /* UIKit.framework */; };
+		8871FFDD14EC396900546E36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871FFDC14EC396900546E36 /* Foundation.framework */; };
+		8871FFDF14EC396900546E36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871FFDE14EC396900546E36 /* CoreGraphics.framework */; };
+		8871FFE514EC396900546E36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8871FFE314EC396900546E36 /* InfoPlist.strings */; };
+		8871FFE714EC396900546E36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871FFE614EC396900546E36 /* main.m */; };
+		8871FFEB14EC396900546E36 /* ZPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871FFEA14EC396900546E36 /* ZPAppDelegate.m */; };
+		8871FFEE14EC396900546E36 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8871FFEC14EC396900546E36 /* MainStoryboard_iPhone.storyboard */; };
+		8871FFF114EC396900546E36 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8871FFEF14EC396900546E36 /* MainStoryboard_iPad.storyboard */; };
+		8871FFF414EC396900546E36 /* ZPMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871FFF314EC396900546E36 /* ZPMasterViewController.m */; };
+		8871FFF714EC396900546E36 /* ZPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871FFF614EC396900546E36 /* ZPDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8871FFD614EC396900546E36 /* Zip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8871FFDA14EC396900546E36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8871FFDC14EC396900546E36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8871FFDE14EC396900546E36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8871FFE214EC396900546E36 /* Zip-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Zip-Info.plist"; sourceTree = "<group>"; };
+		8871FFE414EC396900546E36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8871FFE614EC396900546E36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8871FFE814EC396900546E36 /* Zip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Zip-Prefix.pch"; sourceTree = "<group>"; };
+		8871FFE914EC396900546E36 /* ZPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPAppDelegate.h; sourceTree = "<group>"; };
+		8871FFEA14EC396900546E36 /* ZPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPAppDelegate.m; sourceTree = "<group>"; };
+		8871FFED14EC396900546E36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		8871FFF014EC396900546E36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		8871FFF214EC396900546E36 /* ZPMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPMasterViewController.h; sourceTree = "<group>"; };
+		8871FFF314EC396900546E36 /* ZPMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPMasterViewController.m; sourceTree = "<group>"; };
+		8871FFF514EC396900546E36 /* ZPDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPDetailViewController.h; sourceTree = "<group>"; };
+		8871FFF614EC396900546E36 /* ZPDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8871FFD314EC396900546E36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8871FFDB14EC396900546E36 /* UIKit.framework in Frameworks */,
+				8871FFDD14EC396900546E36 /* Foundation.framework in Frameworks */,
+				8871FFDF14EC396900546E36 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8871FFCB14EC396900546E36 = {
+			isa = PBXGroup;
+			children = (
+				8871FFE014EC396900546E36 /* Zip */,
+				8871FFD914EC396900546E36 /* Frameworks */,
+				8871FFD714EC396900546E36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8871FFD714EC396900546E36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8871FFD614EC396900546E36 /* Zip.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8871FFD914EC396900546E36 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8871FFDA14EC396900546E36 /* UIKit.framework */,
+				8871FFDC14EC396900546E36 /* Foundation.framework */,
+				8871FFDE14EC396900546E36 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8871FFE014EC396900546E36 /* Zip */ = {
+			isa = PBXGroup;
+			children = (
+				8871FFE914EC396900546E36 /* ZPAppDelegate.h */,
+				8871FFEA14EC396900546E36 /* ZPAppDelegate.m */,
+				8871FFEC14EC396900546E36 /* MainStoryboard_iPhone.storyboard */,
+				8871FFEF14EC396900546E36 /* MainStoryboard_iPad.storyboard */,
+				8871FFF214EC396900546E36 /* ZPMasterViewController.h */,
+				8871FFF314EC396900546E36 /* ZPMasterViewController.m */,
+				8871FFF514EC396900546E36 /* ZPDetailViewController.h */,
+				8871FFF614EC396900546E36 /* ZPDetailViewController.m */,
+				8871FFE114EC396900546E36 /* Supporting Files */,
+			);
+			path = Zip;
+			sourceTree = "<group>";
+		};
+		8871FFE114EC396900546E36 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8871FFE214EC396900546E36 /* Zip-Info.plist */,
+				8871FFE314EC396900546E36 /* InfoPlist.strings */,
+				8871FFE614EC396900546E36 /* main.m */,
+				8871FFE814EC396900546E36 /* Zip-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8871FFD514EC396900546E36 /* Zip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8871FFFA14EC396900546E36 /* Build configuration list for PBXNativeTarget "Zip" */;
+			buildPhases = (
+				8871FFD214EC396900546E36 /* Sources */,
+				8871FFD314EC396900546E36 /* Frameworks */,
+				8871FFD414EC396900546E36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zip;
+			productName = Zip;
+			productReference = 8871FFD614EC396900546E36 /* Zip.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8871FFCD14EC396900546E36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 8871FFD014EC396900546E36 /* Build configuration list for PBXProject "Zip" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8871FFCB14EC396900546E36;
+			productRefGroup = 8871FFD714EC396900546E36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8871FFD514EC396900546E36 /* Zip */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8871FFD414EC396900546E36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8871FFE514EC396900546E36 /* InfoPlist.strings in Resources */,
+				8871FFEE14EC396900546E36 /* MainStoryboard_iPhone.storyboard in Resources */,
+				8871FFF114EC396900546E36 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8871FFD214EC396900546E36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8871FFE714EC396900546E36 /* main.m in Sources */,
+				8871FFEB14EC396900546E36 /* ZPAppDelegate.m in Sources */,
+				8871FFF414EC396900546E36 /* ZPMasterViewController.m in Sources */,
+				8871FFF714EC396900546E36 /* ZPDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8871FFE314EC396900546E36 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8871FFE414EC396900546E36 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8871FFEC14EC396900546E36 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8871FFED14EC396900546E36 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8871FFEF14EC396900546E36 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8871FFF014EC396900546E36 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8871FFF814EC396900546E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8871FFF914EC396900546E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8871FFFB14EC396900546E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Zip/Zip-Prefix.pch";
+				INFOPLIST_FILE = "Zip/Zip-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8871FFFC14EC396900546E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Zip/Zip-Prefix.pch";
+				INFOPLIST_FILE = "Zip/Zip-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8871FFD014EC396900546E36 /* Build configuration list for PBXProject "Zip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8871FFF814EC396900546E36 /* Debug */,
+				8871FFF914EC396900546E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8871FFFA14EC396900546E36 /* Build configuration list for PBXNativeTarget "Zip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8871FFFB14EC396900546E36 /* Debug */,
+				8871FFFC14EC396900546E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8871FFCD14EC396900546E36 /* Project object */;
+}
