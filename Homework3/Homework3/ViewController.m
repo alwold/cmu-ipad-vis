@@ -103,11 +103,13 @@
 - (IBAction)connectPoints:(id)sender {
 	MKPolyline *line = [MKPolyline polylineWithCoordinates:coordinates count:coordinateCount];
 	[self.mapView addOverlay:line];
+	coordinateCount = 0;
 }
 
 - (IBAction)makePolygon:(id)sender {
 	MKPolygon *polygon = [MKPolygon polygonWithCoordinates:coordinates count:coordinateCount];
 	[self.mapView addOverlay:polygon];
+	coordinateCount = 0;
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
