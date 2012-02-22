@@ -15,6 +15,8 @@
 #define MAX_POINTS 100
 
 @implementation ViewController
+@synthesize connectButton;
+@synthesize polygonButton;
 @synthesize mapView;
 @synthesize coordinates;
 @synthesize coordinateCount;
@@ -39,6 +41,8 @@
 - (void)viewDidUnload
 {
 	[self setMapView:nil];
+	[self setConnectButton:nil];
+	[self setPolygonButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -79,6 +83,12 @@
 		annotation.coordinate = location;
 		[self.mapView addAnnotation:annotation];
 		self.coordinates[coordinateCount++] = location;
+		if (coordinateCount > 1) {
+			[self.connectButton setEnabled:YES];
+		}
+		if (coordinateCount > 2) {
+			[self.polygonButton setEnabled:YES];
+		}
 		NSLog(@"tap! %f %f", location.latitude, location.longitude);
 	 }
 }
@@ -98,18 +108,24 @@
 	[self.mapView removeOverlays:[self.mapView overlays]];
 	[self.mapView removeAnnotations:[self.mapView annotations]];
 	coordinateCount = 0;
+	[self.connectButton setEnabled:NO];
+	[self.polygonButton setEnabled:NO];
 }
 
 - (IBAction)connectPoints:(id)sender {
 	MKPolyline *line = [MKPolyline polylineWithCoordinates:coordinates count:coordinateCount];
 	[self.mapView addOverlay:line];
 	coordinateCount = 0;
+	[self.connectButton setEnabled:NO];
+	[self.polygonButton setEnabled:NO];
 }
 
 - (IBAction)makePolygon:(id)sender {
 	MKPolygon *polygon = [MKPolygon polygonWithCoordinates:coordinates count:coordinateCount];
 	[self.mapView addOverlay:polygon];
 	coordinateCount = 0;
+	[self.connectButton setEnabled:NO];
+	[self.polygonButton setEnabled:NO];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {

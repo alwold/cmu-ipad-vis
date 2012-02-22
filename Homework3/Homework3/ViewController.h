@@ -17,5 +17,7 @@
 - (IBAction)clearPoints:(id)sender;
 - (IBAction)connectPoints:(id)sender;
 - (IBAction)makePolygon:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *connectButton;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *polygonButton;
 @end
