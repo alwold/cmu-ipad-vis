@@ -25,6 +25,9 @@
 	[self.view addSubview:mSquareView];
 	mLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(applicationFrame), 50)];
 	[self.view addSubview:mLabel];
+	
+	mSquareView.transform = CGAffineTransformMakeRotation(0.25*M_PI);
+	mSquareView.transform = CGAffineTransformConcat(mSquareView.transform, CGAffineTransformMakeScale(2.0, 2.0));
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
