@@ -45,9 +45,9 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	
-	CGPoint touchLocation = [touch locationInView:self.view];
+	CGPoint touchLocation = [touch locationInView:mSquareView];
 	
-	if (CGRectContainsPoint(mSquareView.frame, touchLocation)) {
+	if (CGRectContainsPoint(mSquareView.bounds, touchLocation)) {
 		mLabel.text = @"You touched a rectangle";
 	} else {
 		mLabel.text = @"You missed the rectangle";
