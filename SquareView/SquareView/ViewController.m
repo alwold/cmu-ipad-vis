@@ -27,6 +27,30 @@
 	[self.view addSubview:mLabel];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch *touch = [touches anyObject];
+	
+	CGPoint touchLocation = [touch locationInView:self.view];
+	
+	if (CGRectContainsPoint(mSquareView.frame, touchLocation)) {
+		mLabel.text = @"You touched a rectangle";
+	} else {
+		mLabel.text = @"You missed the rectangle";
+	}
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
