@@ -25,6 +25,8 @@
 		886994F714F804D200DFFA1B /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 886994F614F804D100DFFA1B /* Tweet.m */; };
 		886994FA14F804D200DFFA1B /* TwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 886994F914F804D200DFFA1B /* TwitterUser.m */; };
 		886994FC14F804EF00DFFA1B /* TwitterMap.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 886994FB14F804EF00DFFA1B /* TwitterMap.sqlite */; };
+		886994FE14F85E0400DFFA1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886994FD14F85E0400DFFA1B /* MapKit.framework */; };
+		8869950014F85E0C00DFFA1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886994FF14F85E0C00DFFA1B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		886994F814F804D200DFFA1B /* TwitterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterUser.h; sourceTree = "<group>"; };
 		886994F914F804D200DFFA1B /* TwitterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterUser.m; sourceTree = "<group>"; };
 		886994FB14F804EF00DFFA1B /* TwitterMap.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = TwitterMap.sqlite; sourceTree = "<group>"; };
+		886994FD14F85E0400DFFA1B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		886994FF14F85E0C00DFFA1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8869950014F85E0C00DFFA1B /* CoreLocation.framework in Frameworks */,
+				886994FE14F85E0400DFFA1B /* MapKit.framework in Frameworks */,
 				8869942614F5B2BA00DFFA1B /* UIKit.framework in Frameworks */,
 				8869942814F5B2BA00DFFA1B /* Foundation.framework in Frameworks */,
 				8869942A14F5B2BA00DFFA1B /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +82,8 @@
 		8869941614F5B2BA00DFFA1B = {
 			isa = PBXGroup;
 			children = (
+				886994FF14F85E0C00DFFA1B /* CoreLocation.framework */,
+				886994FD14F85E0400DFFA1B /* MapKit.framework */,
 				8869942D14F5B2BA00DFFA1B /* Homework4 */,
 				8869942414F5B2BA00DFFA1B /* Frameworks */,
 				8869942214F5B2BA00DFFA1B /* Products */,
