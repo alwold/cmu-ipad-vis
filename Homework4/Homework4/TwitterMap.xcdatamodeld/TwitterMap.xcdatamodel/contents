@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="875" systemVersion="11D42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="HashTag" representedClassName="HashTag" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES" isSyncIdentityProperty="YES"/>
+        <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tweet" inverseName="hashtags" inverseEntity="Tweet" syncable="YES"/>
+    </entity>
+    <entity name="Tweet" representedClassName="Tweet" syncable="YES">
+        <attribute name="content" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES" isSyncIdentityProperty="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
+        <relationship name="hashtags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HashTag" inverseName="tweets" inverseEntity="HashTag" syncable="YES"/>
+        <relationship name="mentions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TwitterUser" syncable="YES"/>
+        <relationship name="replyTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Tweet" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TwitterUser" inverseName="tweets" inverseEntity="TwitterUser" syncable="YES"/>
+    </entity>
+    <entity name="TwitterUser" representedClassName="TwitterUser" syncable="YES">
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES" isSyncIdentityProperty="YES"/>
+        <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tweet" inverseName="user" inverseEntity="Tweet" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HashTag" positionX="196" positionY="270" width="128" height="75"/>
+        <element name="Tweet" positionX="-63" positionY="264" width="128" height="195"/>
+        <element name="TwitterUser" positionX="25" positionY="63" width="128" height="75"/>
+    </elements>
+</model>

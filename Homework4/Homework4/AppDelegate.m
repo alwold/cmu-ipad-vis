@@ -33,8 +33,42 @@
 	    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
 	    controller.managedObjectContext = self.managedObjectContext;
 	}
+	[self initializeDatabase];
     return YES;
 }
+
+- (NSURL *)bundleDatabaseURL
+{
+    return [[NSBundle mainBundle] URLForResource:@"TwitterMap"
+								   withExtension:@"sqlite"];
+}
+- (NSURL *)documentDatabaseURL
+{
+    return [[self applicationDocumentsDirectory]
+			URLByAppendingPathComponent:@"TwitterMap.sqlite"];
+}
+- (void)initializeDatabase
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *toURL = [self documentDatabaseURL];
+    if ([fileManager fileExistsAtPath:[toURL path]]) {
+        // must already have copied it
+        NSLog(@"Already have the data");
+    } else {
+        // copy our canned census database out of the resource bundle and into the Document directory
+        NSURL *fromURL = [self bundleDatabaseURL];
+        NSError *error;
+        if ([fileManager copyItemAtURL:fromURL toURL:toURL error:&error]) {
+            NSLog(@"Copied twitter data");
+        } else {
+            NSLog(@"Failed to copy from '%@' to '%@': %@",
+                  fromURL,
+				  toURL,
+				  [error localizedDescription]);
+		}
+	}
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -123,7 +157,7 @@
     {
         return __managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Homework4" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TwitterMap" withExtension:@"momd"];
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return __managedObjectModel;
 }
@@ -139,7 +173,7 @@
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Homework4.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"TwitterMap.sqlite"];
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -184,5 +218,6 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
 
 @end

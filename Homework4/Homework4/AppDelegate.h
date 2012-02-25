@@ -18,5 +18,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (NSURL *)bundleDatabaseURL;
+- (NSURL *)documentDatabaseURL;
+- (void)initializeDatabase;
 @end

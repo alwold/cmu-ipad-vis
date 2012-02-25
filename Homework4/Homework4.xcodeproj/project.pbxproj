@@ -16,11 +16,15 @@
 		8869943814F5B2BA00DFFA1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8869943714F5B2BA00DFFA1B /* AppDelegate.m */; };
 		8869943B14F5B2BA00DFFA1B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8869943914F5B2BA00DFFA1B /* MainStoryboard_iPhone.storyboard */; };
 		8869943E14F5B2BA00DFFA1B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8869943C14F5B2BA00DFFA1B /* MainStoryboard_iPad.storyboard */; };
-		8869944114F5B2BA00DFFA1B /* Homework4.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8869943F14F5B2BA00DFFA1B /* Homework4.xcdatamodeld */; };
 		8869944414F5B2BA00DFFA1B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8869944314F5B2BA00DFFA1B /* MasterViewController.m */; };
 		8869944714F5B2BA00DFFA1B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8869944614F5B2BA00DFFA1B /* DetailViewController.m */; };
 		8869945514F5B89400DFFA1B /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8869945314F5B89400DFFA1B /* TweetViewController.m */; };
 		8869945614F5B89400DFFA1B /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8869945414F5B89400DFFA1B /* TweetViewController.xib */; };
+		886994F114F7FEC000DFFA1B /* TwitterMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 886994EF14F7FEC000DFFA1B /* TwitterMap.xcdatamodeld */; };
+		886994F414F804D100DFFA1B /* HashTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 886994F314F804D100DFFA1B /* HashTag.m */; };
+		886994F714F804D200DFFA1B /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 886994F614F804D100DFFA1B /* Tweet.m */; };
+		886994FA14F804D200DFFA1B /* TwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 886994F914F804D200DFFA1B /* TwitterUser.m */; };
+		886994FC14F804EF00DFFA1B /* TwitterMap.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 886994FB14F804EF00DFFA1B /* TwitterMap.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +41,6 @@
 		8869943714F5B2BA00DFFA1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8869943A14F5B2BA00DFFA1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		8869943D14F5B2BA00DFFA1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		8869944014F5B2BA00DFFA1B /* Homework4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homework4.xcdatamodel; sourceTree = "<group>"; };
 		8869944214F5B2BA00DFFA1B /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		8869944314F5B2BA00DFFA1B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		8869944514F5B2BA00DFFA1B /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -45,6 +48,14 @@
 		8869945214F5B89400DFFA1B /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
 		8869945314F5B89400DFFA1B /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		8869945414F5B89400DFFA1B /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
+		886994F014F7FEC000DFFA1B /* TwitterMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterMap.xcdatamodel; sourceTree = "<group>"; };
+		886994F214F804D100DFFA1B /* HashTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTag.h; sourceTree = "<group>"; };
+		886994F314F804D100DFFA1B /* HashTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashTag.m; sourceTree = "<group>"; };
+		886994F514F804D100DFFA1B /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		886994F614F804D100DFFA1B /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		886994F814F804D200DFFA1B /* TwitterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterUser.h; sourceTree = "<group>"; };
+		886994F914F804D200DFFA1B /* TwitterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterUser.m; sourceTree = "<group>"; };
+		886994FB14F804EF00DFFA1B /* TwitterMap.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = TwitterMap.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +104,13 @@
 		8869942D14F5B2BA00DFFA1B /* Homework4 */ = {
 			isa = PBXGroup;
 			children = (
+				886994EF14F7FEC000DFFA1B /* TwitterMap.xcdatamodeld */,
+				886994F814F804D200DFFA1B /* TwitterUser.h */,
+				886994F914F804D200DFFA1B /* TwitterUser.m */,
+				886994F514F804D100DFFA1B /* Tweet.h */,
+				886994F614F804D100DFFA1B /* Tweet.m */,
+				886994F214F804D100DFFA1B /* HashTag.h */,
+				886994F314F804D100DFFA1B /* HashTag.m */,
 				8869943614F5B2BA00DFFA1B /* AppDelegate.h */,
 				8869943714F5B2BA00DFFA1B /* AppDelegate.m */,
 				8869943914F5B2BA00DFFA1B /* MainStoryboard_iPhone.storyboard */,
@@ -101,7 +119,6 @@
 				8869944314F5B2BA00DFFA1B /* MasterViewController.m */,
 				8869944514F5B2BA00DFFA1B /* DetailViewController.h */,
 				8869944614F5B2BA00DFFA1B /* DetailViewController.m */,
-				8869943F14F5B2BA00DFFA1B /* Homework4.xcdatamodeld */,
 				8869942E14F5B2BA00DFFA1B /* Supporting Files */,
 				8869945214F5B89400DFFA1B /* TweetViewController.h */,
 				8869945314F5B89400DFFA1B /* TweetViewController.m */,
@@ -113,6 +130,7 @@
 		8869942E14F5B2BA00DFFA1B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				886994FB14F804EF00DFFA1B /* TwitterMap.sqlite */,
 				8869942F14F5B2BA00DFFA1B /* Homework4-Info.plist */,
 				8869943014F5B2BA00DFFA1B /* InfoPlist.strings */,
 				8869943314F5B2BA00DFFA1B /* main.m */,
@@ -175,6 +193,7 @@
 				8869943B14F5B2BA00DFFA1B /* MainStoryboard_iPhone.storyboard in Resources */,
 				8869943E14F5B2BA00DFFA1B /* MainStoryboard_iPad.storyboard in Resources */,
 				8869945614F5B89400DFFA1B /* TweetViewController.xib in Resources */,
+				886994FC14F804EF00DFFA1B /* TwitterMap.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,10 +206,13 @@
 			files = (
 				8869943414F5B2BA00DFFA1B /* main.m in Sources */,
 				8869943814F5B2BA00DFFA1B /* AppDelegate.m in Sources */,
-				8869944114F5B2BA00DFFA1B /* Homework4.xcdatamodeld in Sources */,
 				8869944414F5B2BA00DFFA1B /* MasterViewController.m in Sources */,
 				8869944714F5B2BA00DFFA1B /* DetailViewController.m in Sources */,
 				8869945514F5B89400DFFA1B /* TweetViewController.m in Sources */,
+				886994F114F7FEC000DFFA1B /* TwitterMap.xcdatamodeld in Sources */,
+				886994F414F804D100DFFA1B /* HashTag.m in Sources */,
+				886994F714F804D200DFFA1B /* Tweet.m in Sources */,
+				886994FA14F804D200DFFA1B /* TwitterUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,13 +338,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8869943F14F5B2BA00DFFA1B /* Homework4.xcdatamodeld */ = {
+		886994EF14F7FEC000DFFA1B /* TwitterMap.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8869944014F5B2BA00DFFA1B /* Homework4.xcdatamodel */,
+				886994F014F7FEC000DFFA1B /* TwitterMap.xcdatamodel */,
 			);
-			currentVersion = 8869944014F5B2BA00DFFA1B /* Homework4.xcdatamodel */;
-			path = Homework4.xcdatamodeld;
+			currentVersion = 886994F014F7FEC000DFFA1B /* TwitterMap.xcdatamodel */;
+			path = TwitterMap.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

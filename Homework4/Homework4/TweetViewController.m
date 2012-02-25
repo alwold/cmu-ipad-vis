@@ -9,6 +9,7 @@
 #import "TweetViewController.h"
 
 @implementation TweetViewController
+@synthesize tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,7 @@
 
 - (void)viewDidUnload
 {
+	[self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
