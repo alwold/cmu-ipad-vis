@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 - (IBAction)filterEntered:(UITextField *)sender;
 - (IBAction)sortChanged:(UISegmentedControl *)sender;
+- (IBAction)batchSizeChanged:(UISlider *)sender;
 
 @end

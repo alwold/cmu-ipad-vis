@@ -131,4 +131,11 @@
 	[self.fetchedResultsController performFetch:&error];
 	[self.tableView reloadData];
 }
+
+- (IBAction)batchSizeChanged:(UISlider *)sender {
+	[self.fetchedResultsController.fetchRequest setFetchBatchSize:sender.value];
+	NSError *error;
+	[self.fetchedResultsController performFetch:&error];
+	[self.tableView reloadData];
+}
 @end
