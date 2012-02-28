@@ -34,6 +34,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	self.tableView.delegate = self;
+	self.tableView.dataSource = self;
+	[self.tableView reloadData];
 }
 
 - (void)viewDidUnload
@@ -48,6 +51,26 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	NSLog(@"numberOfSections");
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSLog(@"numberofRows");
+	return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSLog(@"cellforRow");
+	return nil;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	NSLog(@"titleForHeader");
+	return @"title";
 }
 
 @end
