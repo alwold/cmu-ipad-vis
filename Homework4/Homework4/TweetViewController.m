@@ -8,6 +8,8 @@
 
 #import "TweetViewController.h"
 #import "AppDelegate.h"
+#import "Tweet.h"
+#import "TwitterUser.h"
 #import <CoreData/CoreData.h>
 
 @implementation TweetViewController
@@ -89,9 +91,11 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 	if (!cell) {
 		NSLog(@"No cell, getting one");
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
 	}
-	cell.textLabel.text = [[[self.fetchedResultsController objectAtIndexPath:indexPath] valueForKey:@"content"] description];
+	Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	cell.textLabel.text = [[tweet user] username];
+	cell.detailTextLabel.text = [tweet content];
 	return cell;
 }
 
