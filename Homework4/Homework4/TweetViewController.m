@@ -94,8 +94,8 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
 	}
 	Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
-	cell.textLabel.text = [[tweet user] username];
-	cell.detailTextLabel.text = [tweet content];
+	cell.textLabel.text = tweet.user.username;
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", tweet.content, tweet.timestamp];
 	return cell;
 }
 
@@ -115,6 +115,19 @@
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"content like[cd] %@", [[@"*" stringByAppendingString:sender.text] stringByAppendingString:@"*"]];
 		[[self.fetchedResultsController fetchRequest] setPredicate:predicate];
 	}
+	[self.fetchedResultsController performFetch:&error];
+	[self.tableView reloadData];
+}
+
+- (IBAction)sortChanged:(UISegmentedControl *)sender {
+	if (sender.selectedSegmentIndex == 0) {
+		// newest
+		self.fetchedResultsController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO]];
+	} else {
+		// oldest
+		self.fetchedResultsController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES]];
+	}
+	NSError *error;
 	[self.fetchedResultsController performFetch:&error];
 	[self.tableView reloadData];
 }

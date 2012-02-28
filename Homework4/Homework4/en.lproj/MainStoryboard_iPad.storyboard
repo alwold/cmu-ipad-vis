@@ -163,13 +163,16 @@
                                     <action selector="filterEntered:" destination="Up8-Ua-VA6" eventType="editingDidEnd" id="GIE-ai-qfI"/>
                                 </connections>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="v0T-5a-tYk">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="v0T-5a-tYk">
                                 <rect key="frame" x="70" y="59" width="230" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Newest"/>
                                     <segment title="Oldest"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortChanged:" destination="Up8-Ua-VA6" eventType="valueChanged" id="mZq-02-RYE"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sort" lineBreakMode="tailTruncation" minimumFontSize="10" id="Lj2-iR-Ruz">
                                 <rect key="frame" x="20" y="70" width="42" height="21"/>
@@ -242,6 +245,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TweetViewController.h"/>
             <relationships>
                 <relationship kind="action" name="filterEntered:" candidateClass="UITextField"/>
+                <relationship kind="action" name="sortChanged:" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
