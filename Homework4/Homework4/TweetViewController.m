@@ -105,4 +105,17 @@
 	return title;
 }
 
+- (IBAction)filterEntered:(UITextField *)sender {
+	NSLog(@"filterEntered");
+	NSError *error;
+	if (sender.text.length == 0) {
+		// no filter
+		[[self.fetchedResultsController fetchRequest] setPredicate:nil];
+	} else {
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"content like[cd] %@", [[@"*" stringByAppendingString:sender.text] stringByAppendingString:@"*"]];
+		[[self.fetchedResultsController fetchRequest] setPredicate:predicate];
+	}
+	[self.fetchedResultsController performFetch:&error];
+	[self.tableView reloadData];
+}
 @end
