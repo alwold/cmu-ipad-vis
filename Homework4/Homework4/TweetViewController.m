@@ -83,12 +83,6 @@
 	return YES;
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//	NSUInteger count = [[self.fetchedResultsController sections] count];
-//	NSLog(@"numberOfSections: %d", count);
-//	return count;
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSUInteger count = [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 	NSLog(@"numberofRows: %d", count);
@@ -151,6 +145,17 @@
 }
 
 - (IBAction)filterByMap {
+	MKMapView *mapView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).mapView;
+	CLLocationDegrees minLat = mapView.centerCoordinate.latitude - (mapView.region.span.latitudeDelta/2);
+	CLLocationDegrees minLon = mapView.centerCoordinate.longitude - (mapView.region.span.longitudeDelta/2);
+	CLLocationDegrees maxLat = mapView.centerCoordinate.latitude + (mapView.region.span.latitudeDelta/2);
+	CLLocationDegrees maxLon = mapView.centerCoordinate.longitude + (mapView.region.span.longitudeDelta/2);
 	
+	NSLog(@"Bounding rect: %f, %f - %f, %f", minLat, minLon, maxLat, maxLon);
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"latitude >= %f and latitude <= %f and longitude >= %f and longitude <= %f", minLat, maxLat, minLon, maxLon];
+	[self.fetchedResultsController.fetchRequest setPredicate:predicate];
+	NSError *error;
+	[self.fetchedResultsController performFetch:&error];
+	[self.tableView reloadData];
 }
 @end

@@ -210,7 +210,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="filterByMap:" destination="Up8-Ua-VA6" eventType="touchUpInside" id="hDf-Bi-3Yd"/>
+                                    <action selector="filterByMap" destination="Up8-Ua-VA6" eventType="touchUpInside" id="24R-uH-zde"/>
                                 </connections>
                             </button>
                         </subviews>
