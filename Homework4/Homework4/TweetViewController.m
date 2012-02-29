@@ -56,6 +56,17 @@
 
 	NSError *error;
 	BOOL success = [self.fetchedResultsController performFetch:&error];
+	
+
+	// add pins for first 100 tweets
+	for (int i = 0; i < 100; i++) {
+		Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+		if (tweet.latitude && tweet.longitude) {
+		MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+			annotation.coordinate = CLLocationCoordinate2DMake([tweet.latitude doubleValue], [tweet.longitude doubleValue]);
+		[delegate.mapView addAnnotation:annotation];
+		}
+	}
 }
 
 - (void)viewDidUnload
@@ -137,5 +148,9 @@
 	NSError *error;
 	[self.fetchedResultsController performFetch:&error];
 	[self.tableView reloadData];
+}
+
+- (IBAction)filterByMap {
+	
 }
 @end
