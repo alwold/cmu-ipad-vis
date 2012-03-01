@@ -16,5 +16,6 @@
 - (IBAction)sortChanged:(UISegmentedControl *)sender;
 - (IBAction)batchSizeChanged:(UISlider *)sender;
 - (IBAction)filterByMap;
+- (void)reloadTweets;
 
 @end

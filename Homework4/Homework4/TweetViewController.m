@@ -55,21 +55,7 @@
 	
 	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 
-	NSError *error;
-	BOOL success = [self.fetchedResultsController performFetch:&error];
-	
-
-	// add pins for first 100 tweets
-	self.annotations = [NSMutableSet setWithCapacity:100];
-	for (int i = 0; i < 100; i++) {
-		Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-		if (tweet.latitude && tweet.longitude) {
-			MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-			annotation.coordinate = CLLocationCoordinate2DMake([tweet.latitude doubleValue], [tweet.longitude doubleValue]);
-			[delegate.mapView addAnnotation:annotation];
-			[self.annotations addObject:annotation];
-		}
-	}
+	[self reloadTweets];
 }
 
 - (void)viewDidUnload
@@ -111,7 +97,6 @@
 
 - (IBAction)filterEntered:(UITextField *)sender {
 	NSLog(@"filterEntered");
-	NSError *error;
 	if (sender.text.length == 0) {
 		// no filter
 		[[self.fetchedResultsController fetchRequest] setPredicate:nil];
@@ -119,8 +104,7 @@
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"content like[cd] %@", [[@"*" stringByAppendingString:sender.text] stringByAppendingString:@"*"]];
 		[[self.fetchedResultsController fetchRequest] setPredicate:predicate];
 	}
-	[self.fetchedResultsController performFetch:&error];
-	[self.tableView reloadData];
+	[self reloadTweets];
 }
 
 - (IBAction)sortChanged:(UISegmentedControl *)sender {
@@ -131,16 +115,12 @@
 		// oldest
 		self.fetchedResultsController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES]];
 	}
-	NSError *error;
-	[self.fetchedResultsController performFetch:&error];
-	[self.tableView reloadData];
+	[self reloadTweets];
 }
 
 - (IBAction)batchSizeChanged:(UISlider *)sender {
 	[self.fetchedResultsController.fetchRequest setFetchBatchSize:sender.value];
-	NSError *error;
-	[self.fetchedResultsController performFetch:&error];
-	[self.tableView reloadData];
+	[self reloadTweets];
 }
 
 - (IBAction)filterByMap {
@@ -153,8 +133,29 @@
 	NSLog(@"Bounding rect: %f, %f - %f, %f", minLat, minLon, maxLat, maxLon);
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"latitude >= %f and latitude <= %f and longitude >= %f and longitude <= %f", minLat, maxLat, minLon, maxLon];
 	[self.fetchedResultsController.fetchRequest setPredicate:predicate];
+	[self reloadTweets];
+}
+
+- (void)reloadTweets {
+	AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+
 	NSError *error;
 	[self.fetchedResultsController performFetch:&error];
 	[self.tableView reloadData];
+	
+	// add pins for first 100 tweets
+	[delegate.mapView removeAnnotations:delegate.mapView.annotations];
+	self.annotations = [NSMutableSet setWithCapacity:100];
+	NSUInteger tweetCount = [[[self.fetchedResultsController sections] objectAtIndex:0] numberOfObjects];
+	for (int i = 0; i < 100 && i < tweetCount; i++) {
+		Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+		if (tweet.latitude && tweet.longitude) {
+			MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+			annotation.coordinate = CLLocationCoordinate2DMake([tweet.latitude doubleValue], [tweet.longitude doubleValue]);
+			[delegate.mapView addAnnotation:annotation];
+			[self.annotations addObject:annotation];
+		}
+	}
+
 }
 @end
