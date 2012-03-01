@@ -15,6 +15,7 @@
 @implementation TweetViewController
 @synthesize tableView;
 @synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize annotations = _annotations;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,12 +60,14 @@
 	
 
 	// add pins for first 100 tweets
+	self.annotations = [NSMutableSet setWithCapacity:100];
 	for (int i = 0; i < 100; i++) {
 		Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
 		if (tweet.latitude && tweet.longitude) {
-		MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+			MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 			annotation.coordinate = CLLocationCoordinate2DMake([tweet.latitude doubleValue], [tweet.longitude doubleValue]);
-		[delegate.mapView addAnnotation:annotation];
+			[delegate.mapView addAnnotation:annotation];
+			[self.annotations addObject:annotation];
 		}
 	}
 }

@@ -11,6 +11,7 @@
 @interface TweetViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSMutableSet *annotations;
 - (IBAction)filterEntered:(UITextField *)sender;
 - (IBAction)sortChanged:(UISegmentedControl *)sender;
 - (IBAction)batchSizeChanged:(UISlider *)sender;
