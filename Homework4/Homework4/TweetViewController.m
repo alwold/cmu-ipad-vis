@@ -91,13 +91,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSLog(@"cellforRow");
-	static NSString *cellIdentifier = @"Cell";
+	static NSString *cellIdentifier = @"TweetCell";
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-	if (!cell) {
-		NSLog(@"No cell, getting one");
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-	}
 	Tweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	cell.textLabel.text = tweet.user.username;
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", tweet.content, tweet.timestamp];
