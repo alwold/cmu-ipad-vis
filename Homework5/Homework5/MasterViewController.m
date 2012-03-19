@@ -17,7 +17,6 @@
 - (void)awakeFromNib
 {
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-	    self.clearsSelectionOnViewWillAppear = NO;
 	    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 	}
     [super awakeFromNib];
@@ -36,9 +35,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-	    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-	}
 }
 
 - (void)viewDidUnload
