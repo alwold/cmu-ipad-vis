@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884DAABB1517F2CD001B0218 /* TwitterMap.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 884DAAB81517F2CD001B0218 /* TwitterMap.sqlite */; };
+		884DAABC1517F2CD001B0218 /* TwitterMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 884DAAB91517F2CD001B0218 /* TwitterMap.xcdatamodeld */; };
+		884DAABE1517F7CF001B0218 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884DAABD1517F7CF001B0218 /* CoreData.framework */; };
 		88F465F6151121B4005ABEBB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F465F5151121B4005ABEBB /* UIKit.framework */; };
 		88F465F8151121B4005ABEBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F465F7151121B4005ABEBB /* Foundation.framework */; };
 		88F465FA151121B4005ABEBB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F465F9151121B4005ABEBB /* CoreGraphics.framework */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		884DAAB81517F2CD001B0218 /* TwitterMap.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = TwitterMap.sqlite; sourceTree = "<group>"; };
+		884DAABA1517F2CD001B0218 /* TwitterMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterMap.xcdatamodel; sourceTree = "<group>"; };
+		884DAABD1517F7CF001B0218 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		88F465F1151121B4005ABEBB /* Homework5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F465F5151121B4005ABEBB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88F465F7151121B4005ABEBB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884DAABE1517F7CF001B0218 /* CoreData.framework in Frameworks */,
 				88F466191511223F005ABEBB /* MapKit.framework in Frameworks */,
 				88F465F6151121B4005ABEBB /* UIKit.framework in Frameworks */,
 				88F465F8151121B4005ABEBB /* Foundation.framework in Frameworks */,
@@ -56,6 +63,7 @@
 		88F465E6151121B4005ABEBB = {
 			isa = PBXGroup;
 			children = (
+				884DAABD1517F7CF001B0218 /* CoreData.framework */,
 				88F466181511223F005ABEBB /* MapKit.framework */,
 				88F465FB151121B4005ABEBB /* Homework5 */,
 				88F465F4151121B4005ABEBB /* Frameworks */,
@@ -91,6 +99,7 @@
 				88F4660E151121B4005ABEBB /* MasterViewController.m */,
 				88F46610151121B4005ABEBB /* DetailViewController.h */,
 				88F46611151121B4005ABEBB /* DetailViewController.m */,
+				884DAAB91517F2CD001B0218 /* TwitterMap.xcdatamodeld */,
 				88F465FC151121B4005ABEBB /* Supporting Files */,
 			);
 			path = Homework5;
@@ -99,6 +108,7 @@
 		88F465FC151121B4005ABEBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				884DAAB81517F2CD001B0218 /* TwitterMap.sqlite */,
 				88F465FD151121B4005ABEBB /* Homework5-Info.plist */,
 				88F465FE151121B4005ABEBB /* InfoPlist.strings */,
 				88F46601151121B4005ABEBB /* main.m */,
@@ -159,6 +169,7 @@
 			files = (
 				88F46600151121B4005ABEBB /* InfoPlist.strings in Resources */,
 				88F4660C151121B4005ABEBB /* MainStoryboard_iPad.storyboard in Resources */,
+				884DAABB1517F2CD001B0218 /* TwitterMap.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +184,7 @@
 				88F46606151121B4005ABEBB /* AppDelegate.m in Sources */,
 				88F4660F151121B4005ABEBB /* MasterViewController.m in Sources */,
 				88F46612151121B4005ABEBB /* DetailViewController.m in Sources */,
+				884DAABC1517F2CD001B0218 /* TwitterMap.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +303,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		884DAAB91517F2CD001B0218 /* TwitterMap.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				884DAABA1517F2CD001B0218 /* TwitterMap.xcdatamodel */,
+			);
+			currentVersion = 884DAABA1517F2CD001B0218 /* TwitterMap.xcdatamodel */;
+			path = TwitterMap.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 88F465E8151121B4005ABEBB /* Project object */;
 }
