@@ -13,7 +13,6 @@
 		88F46600151121B4005ABEBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88F465FE151121B4005ABEBB /* InfoPlist.strings */; };
 		88F46602151121B4005ABEBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F46601151121B4005ABEBB /* main.m */; };
 		88F46606151121B4005ABEBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F46605151121B4005ABEBB /* AppDelegate.m */; };
-		88F46609151121B4005ABEBB /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88F46607151121B4005ABEBB /* MainStoryboard_iPhone.storyboard */; };
 		88F4660C151121B4005ABEBB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88F4660A151121B4005ABEBB /* MainStoryboard_iPad.storyboard */; };
 		88F4660F151121B4005ABEBB /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F4660E151121B4005ABEBB /* MasterViewController.m */; };
 		88F46612151121B4005ABEBB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F46611151121B4005ABEBB /* DetailViewController.m */; };
@@ -31,7 +30,6 @@
 		88F46603151121B4005ABEBB /* Homework5-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Homework5-Prefix.pch"; sourceTree = "<group>"; };
 		88F46604151121B4005ABEBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		88F46605151121B4005ABEBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		88F46608151121B4005ABEBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		88F4660B151121B4005ABEBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		88F4660D151121B4005ABEBB /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		88F4660E151121B4005ABEBB /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 			children = (
 				88F46604151121B4005ABEBB /* AppDelegate.h */,
 				88F46605151121B4005ABEBB /* AppDelegate.m */,
-				88F46607151121B4005ABEBB /* MainStoryboard_iPhone.storyboard */,
 				88F4660A151121B4005ABEBB /* MainStoryboard_iPad.storyboard */,
 				88F4660D151121B4005ABEBB /* MasterViewController.h */,
 				88F4660E151121B4005ABEBB /* MasterViewController.m */,
@@ -161,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F46600151121B4005ABEBB /* InfoPlist.strings in Resources */,
-				88F46609151121B4005ABEBB /* MainStoryboard_iPhone.storyboard in Resources */,
 				88F4660C151121B4005ABEBB /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,14 +185,6 @@
 				88F465FF151121B4005ABEBB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		88F46607151121B4005ABEBB /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				88F46608151121B4005ABEBB /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		88F4660A151121B4005ABEBB /* MainStoryboard_iPad.storyboard */ = {
@@ -264,6 +252,7 @@
 				GCC_PREFIX_HEADER = "Homework5/Homework5-Prefix.pch";
 				INFOPLIST_FILE = "Homework5/Homework5-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -275,6 +264,7 @@
 				GCC_PREFIX_HEADER = "Homework5/Homework5-Prefix.pch";
 				INFOPLIST_FILE = "Homework5/Homework5-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -298,6 +288,7 @@
 				88F46617151121B4005ABEBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
