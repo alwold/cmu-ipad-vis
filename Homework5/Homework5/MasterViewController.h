@@ -17,5 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property BOOL timerRunning;
+@property dispatch_source_t dispatchSource;
+
+- (IBAction)dateChanged:(UIDatePicker *)sender;
+- (IBAction)startStopTimer:(UIButton *)sender;
 
 @end

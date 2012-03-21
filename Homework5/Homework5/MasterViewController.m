@@ -16,6 +16,8 @@
 @synthesize tableView = _tableView;
 @synthesize datePicker = _datePicker;
 @synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize timerRunning = _timerRunning;
+@synthesize dispatchSource = _dispatchSource;
 
 - (void)awakeFromNib
 {
@@ -36,9 +38,11 @@
 	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit) fromDate:[NSDate date]];
 	NSDate *startDate = [calendar dateFromComponents:comps];
+	NSLog(@"startDate = %@", startDate);
 	[comps setHour:comps.hour+1];
 	NSDate *endDate = [calendar dateFromComponents:comps];
-//	[self.fetchedResultsController.fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"timestamp BETWEEN { %@, %@ }", startDate, endDate]];
+	NSLog(@"endDate = %@", endDate);
+	[self.fetchedResultsController.fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"timestamp BETWEEN { %@, %@ }", startDate, endDate]];
 	NSError *error;
 	[self.fetchedResultsController performFetch:&error];
 	[self.tableView reloadData];
@@ -113,5 +117,35 @@
 	NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	cell.textLabel.text = [managedObject valueForKey:@"content"];
 	return cell;
+}
+- (IBAction)dateChanged:(UIDatePicker *)sender {
+	[self updateTweetFilter];
+}
+
+- (IBAction)startStopTimer:(UIButton *)sender {
+	if (self.timerRunning) {
+		//stop it
+		dispatch_source_cancel(self.dispatchSource);
+		self.timerRunning = NO;
+		[sender setTitle:@"Start" forState:UIControlStateNormal];
+	} else {
+		// start it
+		NSLog(@"starting. ref date = %@", self.datePicker.date);
+		self.dispatchSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
+		dispatch_source_set_event_handler(self.dispatchSource, ^{
+			// advance the date by an hour
+			NSLog(@"timer event fired");
+			NSDate *date = self.datePicker.date;
+			NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+			NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit) fromDate:date];
+			[comps setHour:comps.hour+1];
+			self.datePicker.date = [calendar dateFromComponents:comps];
+		});
+		dispatch_source_set_timer(self.dispatchSource, DISPATCH_TIME_NOW,  1000000000 ,  1000000000);
+		dispatch_resume(self.dispatchSource);
+		self.timerRunning = YES;
+		[sender setTitle:@"Stop" forState:UIControlStateNormal];
+	}
+	
 }
 @end
