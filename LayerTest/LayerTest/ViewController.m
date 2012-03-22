@@ -11,6 +11,8 @@
 
 @implementation ViewController
 
+@synthesize layer;
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -23,9 +25,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	CALayer *layer = [[CALayer alloc] init];
+	layer = [[CALayer alloc] init];
 	layer.bounds = CGRectMake(0, 0, 100, 100);
-	layer.position = CGPointMake(60, 60);
+	layer.position = CGPointMake(60, 200);
 	layer.backgroundColor = [UIColor redColor].CGColor;
 	
 	[self.view.layer addSublayer:layer];
@@ -64,4 +66,7 @@
 	return YES;
 }
 
+- (IBAction)go:(id)sender {
+	layer.position = CGPointMake(200, 200);
+}
 @end

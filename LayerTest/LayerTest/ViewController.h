@@ -10,4 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) CALayer *layer;
+
+- (IBAction)go:(id)sender;
+
 @end
