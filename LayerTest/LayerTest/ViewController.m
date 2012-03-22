@@ -69,4 +69,13 @@
 - (IBAction)go:(id)sender {
 	layer.position = CGPointMake(200, 200);
 }
+- (IBAction)fancier:(id)sender {
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(200, 200)];
+	animation.duration = 1;
+	animation.removedOnCompletion = NO;
+	animation.fillMode = kCAFillModeForwards;
+	
+	[layer addAnimation:animation forKey:@"position"];
+}
 @end

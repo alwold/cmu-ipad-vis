@@ -13,5 +13,6 @@
 @property (strong, nonatomic) CALayer *layer;
 
 - (IBAction)go:(id)sender;
+- (IBAction)fancier:(id)sender;
 
 @end
