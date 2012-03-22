@@ -127,11 +127,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Tweet"];
-	NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-	cell.textLabel.text = [managedObject valueForKey:@"content"];
+	NSManagedObject *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	cell.textLabel.text = [tweet valueForKey:@"content"];
+	NSManagedObject *twitterUser = [tweet valueForKey:@"user"];
+	cell.detailTextLabel.text = [twitterUser valueForKey:@"username"];
 	return cell;
 }
 - (IBAction)dateChanged:(UIDatePicker *)sender {
+	NSLog(@"self.datePicker is %@", self.datePicker);
+	NSLog(@"event target is %@", sender);
 	NSLog(@"datechanged");
 	[self updateTweetFilter];
 }
@@ -149,7 +153,7 @@
 		dispatch_source_set_event_handler(self.dispatchSource, ^{
 			[self advanceDate];	
 		});
-		dispatch_source_set_timer(self.dispatchSource, DISPATCH_TIME_NOW,  1000000000 ,  1000000000);
+		dispatch_source_set_timer(self.dispatchSource, DISPATCH_TIME_NOW, 1000000000, 1000000000);
 		dispatch_resume(self.dispatchSource);
 		self.timerRunning = YES;
 		[sender setTitle:@"Stop" forState:UIControlStateNormal];
@@ -159,8 +163,9 @@
 - (void)advanceDate {
 	NSDate *date = self.datePicker.date;
 	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit) fromDate:date];
-	[comps setHour:comps.hour+1];
+	NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+	[comps setMinute:comps.minute+1];
+	NSLog(@"self.datePicker is %@", self.datePicker);
 	[self.datePicker setDate:[calendar dateFromComponents:comps] animated:YES];
 	[self updateTweetFilter];
 }
