@@ -36,10 +36,11 @@
 - (void)updateTweetFilter
 {
 	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit) fromDate:[NSDate date]];
+	NSLog(@"datePicker date: %@", self.datePicker.date);
+	NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:self.datePicker.date];
 	NSDate *startDate = [calendar dateFromComponents:comps];
 	NSLog(@"startDate = %@", startDate);
-	[comps setHour:comps.hour+1];
+	[comps setMinute:comps.minute+1];
 	NSDate *endDate = [calendar dateFromComponents:comps];
 	NSLog(@"endDate = %@", endDate);
 	[self.fetchedResultsController.fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"timestamp BETWEEN { %@, %@ }", startDate, endDate]];
@@ -65,6 +66,18 @@
 	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 	NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
 	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+	
+	
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	components.year = 2012;
+	components.month = 1;
+	components.day = 31;
+	components.hour = 8;
+	components.minute = 47;
+	[self.datePicker setDate:[calendar dateFromComponents:components] animated:NO];
+
+							  
 	[self updateTweetFilter];
 }
 
@@ -119,6 +132,7 @@
 	return cell;
 }
 - (IBAction)dateChanged:(UIDatePicker *)sender {
+	NSLog(@"datechanged");
 	[self updateTweetFilter];
 }
 
@@ -133,19 +147,21 @@
 		NSLog(@"starting. ref date = %@", self.datePicker.date);
 		self.dispatchSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
 		dispatch_source_set_event_handler(self.dispatchSource, ^{
-			// advance the date by an hour
-			NSLog(@"timer event fired");
-			NSDate *date = self.datePicker.date;
-			NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-			NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit) fromDate:date];
-			[comps setHour:comps.hour+1];
-			self.datePicker.date = [calendar dateFromComponents:comps];
+			[self advanceDate];	
 		});
 		dispatch_source_set_timer(self.dispatchSource, DISPATCH_TIME_NOW,  1000000000 ,  1000000000);
 		dispatch_resume(self.dispatchSource);
 		self.timerRunning = YES;
 		[sender setTitle:@"Stop" forState:UIControlStateNormal];
 	}
-	
+}
+
+- (void)advanceDate {
+	NSDate *date = self.datePicker.date;
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit) fromDate:date];
+	[comps setHour:comps.hour+1];
+	[self.datePicker setDate:[calendar dateFromComponents:comps] animated:YES];
+	[self updateTweetFilter];
 }
 @end

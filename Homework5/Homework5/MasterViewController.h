@@ -22,5 +22,6 @@
 
 - (IBAction)dateChanged:(UIDatePicker *)sender;
 - (IBAction)startStopTimer:(UIButton *)sender;
+- (void)advanceDate;
 
 @end
