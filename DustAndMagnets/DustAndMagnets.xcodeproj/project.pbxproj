@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		883F7BC9155B1A4A00E2DDDA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883F7BC8155B1A4A00E2DDDA /* UIKit.framework */; };
+		883F7BCB155B1A4A00E2DDDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883F7BCA155B1A4A00E2DDDA /* Foundation.framework */; };
+		883F7BCD155B1A4A00E2DDDA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883F7BCC155B1A4A00E2DDDA /* CoreGraphics.framework */; };
+		883F7BD3155B1A4A00E2DDDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 883F7BD1155B1A4A00E2DDDA /* InfoPlist.strings */; };
+		883F7BD5155B1A4A00E2DDDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BD4155B1A4A00E2DDDA /* main.m */; };
+		883F7BD9155B1A4A00E2DDDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BD8155B1A4A00E2DDDA /* AppDelegate.m */; };
+		883F7BDC155B1A4A00E2DDDA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883F7BDA155B1A4A00E2DDDA /* MainStoryboard.storyboard */; };
+		883F7BDF155B1A4A00E2DDDA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BDE155B1A4A00E2DDDA /* ViewController.m */; };
+		883F7BE7155B1E9B00E2DDDA /* ParticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BE6155B1E9B00E2DDDA /* ParticleModel.m */; };
+		883F7BED155B1F8700E2DDDA /* ParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BEC155B1F8700E2DDDA /* ParticleSystem.m */; };
+		883F7BF0155B237700E2DDDA /* ParticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BEF155B237700E2DDDA /* ParticleView.m */; };
+		883F7BF3155B269B00E2DDDA /* MagnetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BF2155B269B00E2DDDA /* MagnetView.m */; };
+		883F7BF6155B276400E2DDDA /* DustView.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BF5155B276400E2DDDA /* DustView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		883F7BC4155B1A4A00E2DDDA /* DustAndMagnets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustAndMagnets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		883F7BC8155B1A4A00E2DDDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		883F7BCA155B1A4A00E2DDDA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		883F7BCC155B1A4A00E2DDDA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		883F7BD0155B1A4A00E2DDDA /* DustAndMagnets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DustAndMagnets-Info.plist"; sourceTree = "<group>"; };
+		883F7BD2155B1A4A00E2DDDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		883F7BD4155B1A4A00E2DDDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		883F7BD6155B1A4A00E2DDDA /* DustAndMagnets-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DustAndMagnets-Prefix.pch"; sourceTree = "<group>"; };
+		883F7BD7155B1A4A00E2DDDA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		883F7BD8155B1A4A00E2DDDA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		883F7BDB155B1A4A00E2DDDA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		883F7BDD155B1A4A00E2DDDA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		883F7BDE155B1A4A00E2DDDA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		883F7BE5155B1E9B00E2DDDA /* ParticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleModel.h; sourceTree = "<group>"; };
+		883F7BE6155B1E9B00E2DDDA /* ParticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleModel.m; sourceTree = "<group>"; };
+		883F7BEB155B1F8700E2DDDA /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
+		883F7BEC155B1F8700E2DDDA /* ParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSystem.m; sourceTree = "<group>"; };
+		883F7BEE155B237700E2DDDA /* ParticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleView.h; sourceTree = "<group>"; };
+		883F7BEF155B237700E2DDDA /* ParticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleView.m; sourceTree = "<group>"; };
+		883F7BF1155B269B00E2DDDA /* MagnetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnetView.h; sourceTree = "<group>"; };
+		883F7BF2155B269B00E2DDDA /* MagnetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnetView.m; sourceTree = "<group>"; };
+		883F7BF4155B276400E2DDDA /* DustView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DustView.h; sourceTree = "<group>"; };
+		883F7BF5155B276400E2DDDA /* DustView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DustView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		883F7BC1155B1A4A00E2DDDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				883F7BC9155B1A4A00E2DDDA /* UIKit.framework in Frameworks */,
+				883F7BCB155B1A4A00E2DDDA /* Foundation.framework in Frameworks */,
+				883F7BCD155B1A4A00E2DDDA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		883F7BB9155B1A4A00E2DDDA = {
+			isa = PBXGroup;
+			children = (
+				883F7BCE155B1A4A00E2DDDA /* DustAndMagnets */,
+				883F7BC7155B1A4A00E2DDDA /* Frameworks */,
+				883F7BC5155B1A4A00E2DDDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		883F7BC5155B1A4A00E2DDDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				883F7BC4155B1A4A00E2DDDA /* DustAndMagnets.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		883F7BC7155B1A4A00E2DDDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				883F7BC8155B1A4A00E2DDDA /* UIKit.framework */,
+				883F7BCA155B1A4A00E2DDDA /* Foundation.framework */,
+				883F7BCC155B1A4A00E2DDDA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		883F7BCE155B1A4A00E2DDDA /* DustAndMagnets */ = {
+			isa = PBXGroup;
+			children = (
+				883F7BD7155B1A4A00E2DDDA /* AppDelegate.h */,
+				883F7BD8155B1A4A00E2DDDA /* AppDelegate.m */,
+				883F7BDA155B1A4A00E2DDDA /* MainStoryboard.storyboard */,
+				883F7BEE155B237700E2DDDA /* ParticleView.h */,
+				883F7BEF155B237700E2DDDA /* ParticleView.m */,
+				883F7BDD155B1A4A00E2DDDA /* ViewController.h */,
+				883F7BDE155B1A4A00E2DDDA /* ViewController.m */,
+				883F7BF1155B269B00E2DDDA /* MagnetView.h */,
+				883F7BF2155B269B00E2DDDA /* MagnetView.m */,
+				883F7BF4155B276400E2DDDA /* DustView.h */,
+				883F7BF5155B276400E2DDDA /* DustView.m */,
+				883F7BCF155B1A4A00E2DDDA /* Supporting Files */,
+				883F7BE5155B1E9B00E2DDDA /* ParticleModel.h */,
+				883F7BE6155B1E9B00E2DDDA /* ParticleModel.m */,
+				883F7BEB155B1F8700E2DDDA /* ParticleSystem.h */,
+				883F7BEC155B1F8700E2DDDA /* ParticleSystem.m */,
+			);
+			path = DustAndMagnets;
+			sourceTree = "<group>";
+		};
+		883F7BCF155B1A4A00E2DDDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				883F7BD0155B1A4A00E2DDDA /* DustAndMagnets-Info.plist */,
+				883F7BD1155B1A4A00E2DDDA /* InfoPlist.strings */,
+				883F7BD4155B1A4A00E2DDDA /* main.m */,
+				883F7BD6155B1A4A00E2DDDA /* DustAndMagnets-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		883F7BC3155B1A4A00E2DDDA /* DustAndMagnets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 883F7BE2155B1A4A00E2DDDA /* Build configuration list for PBXNativeTarget "DustAndMagnets" */;
+			buildPhases = (
+				883F7BC0155B1A4A00E2DDDA /* Sources */,
+				883F7BC1155B1A4A00E2DDDA /* Frameworks */,
+				883F7BC2155B1A4A00E2DDDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DustAndMagnets;
+			productName = DustAndMagnets;
+			productReference = 883F7BC4155B1A4A00E2DDDA /* DustAndMagnets.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		883F7BBB155B1A4A00E2DDDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 883F7BBE155B1A4A00E2DDDA /* Build configuration list for PBXProject "DustAndMagnets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 883F7BB9155B1A4A00E2DDDA;
+			productRefGroup = 883F7BC5155B1A4A00E2DDDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				883F7BC3155B1A4A00E2DDDA /* DustAndMagnets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		883F7BC2155B1A4A00E2DDDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				883F7BD3155B1A4A00E2DDDA /* InfoPlist.strings in Resources */,
+				883F7BDC155B1A4A00E2DDDA /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		883F7BC0155B1A4A00E2DDDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				883F7BD5155B1A4A00E2DDDA /* main.m in Sources */,
+				883F7BD9155B1A4A00E2DDDA /* AppDelegate.m in Sources */,
+				883F7BDF155B1A4A00E2DDDA /* ViewController.m in Sources */,
+				883F7BE7155B1E9B00E2DDDA /* ParticleModel.m in Sources */,
+				883F7BED155B1F8700E2DDDA /* ParticleSystem.m in Sources */,
+				883F7BF0155B237700E2DDDA /* ParticleView.m in Sources */,
+				883F7BF3155B269B00E2DDDA /* MagnetView.m in Sources */,
+				883F7BF6155B276400E2DDDA /* DustView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		883F7BD1155B1A4A00E2DDDA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				883F7BD2155B1A4A00E2DDDA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		883F7BDA155B1A4A00E2DDDA /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				883F7BDB155B1A4A00E2DDDA /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		883F7BE0155B1A4A00E2DDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		883F7BE1155B1A4A00E2DDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		883F7BE3155B1A4A00E2DDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DustAndMagnets/DustAndMagnets-Prefix.pch";
+				INFOPLIST_FILE = "DustAndMagnets/DustAndMagnets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		883F7BE4155B1A4A00E2DDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DustAndMagnets/DustAndMagnets-Prefix.pch";
+				INFOPLIST_FILE = "DustAndMagnets/DustAndMagnets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		883F7BBE155B1A4A00E2DDDA /* Build configuration list for PBXProject "DustAndMagnets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				883F7BE0155B1A4A00E2DDDA /* Debug */,
+				883F7BE1155B1A4A00E2DDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		883F7BE2155B1A4A00E2DDDA /* Build configuration list for PBXNativeTarget "DustAndMagnets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				883F7BE3155B1A4A00E2DDDA /* Debug */,
+				883F7BE4155B1A4A00E2DDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 883F7BBB155B1A4A00E2DDDA /* Project object */;
+}
