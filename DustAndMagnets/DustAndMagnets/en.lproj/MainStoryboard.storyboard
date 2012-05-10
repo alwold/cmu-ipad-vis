@@ -14,13 +14,21 @@
                     <view key="view" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="f65-NL-ynO">
+                                <rect key="frame" x="20" y="20" width="710" height="800"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="boardView" destination="5" id="5Dm-yN-mq8"/>
+                        <outlet property="boardView" destination="f65-NL-ynO" id="qb1-yr-hk3"/>
                     </connections>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="-78" y="-158"/>
         </scene>
     </scenes>
     <classes>
