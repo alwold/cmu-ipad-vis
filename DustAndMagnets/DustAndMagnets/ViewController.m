@@ -142,8 +142,10 @@
 
 - (void)handleMagnetTap:(UITapGestureRecognizer*)tapGR
 {
+	NSLog(@"magnet tapped");
 	MagnetView *magnetView = (MagnetView *)tapGR.view;
 	magnetView.enabled = !magnetView.enabled;
+	NSLog(@"magnet enabled status: %d", magnetView.enabled);
 }
 
 - (CGPoint)clampToView:(CGPoint)point

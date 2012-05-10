@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
 		self.baseColor = [UIColor colorWithRed:0.5 green:0.5 blue:1. alpha:1.];
-		self.disabledColor = [UIColor colorWithRed:0.5 green:0.5 blue:1. alpha:1.];
+		self.disabledColor = [UIColor colorWithRed:0.5 green:0.5 blue:1. alpha:0.6];
 		self.backgroundColor = self.baseColor;
 		self.label.textColor = UIColor.whiteColor;
     }
