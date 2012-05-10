@@ -14,4 +14,15 @@
 @synthesize targetMaxes;
 @synthesize targetThresholds;
 
+- (double)attractionBetweenSource:(ParticleModel *)source andTarget:(ParticleModel *)target
+{
+	__block double attraction = 0;
+	if (source.enabled && target.enabled) {
+		[source.strengthByAttribute enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSNumber *sourceStrengthNum, BOOL *stop) {
+			NSNumber *targetStrengthNum = [target.strengthByAttribute valueForKey:key];
+			attraction += sourceStrengthNum.doubleValue * targetStrengthNum.doubleValue;
+		}];
+	}
+	return attraction;
+}
 @end

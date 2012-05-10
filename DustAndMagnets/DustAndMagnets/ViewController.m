@@ -23,6 +23,7 @@
 @implementation ViewController
 
 @synthesize boardView;
+@synthesize physicsEngine;
 
 - (void)viewDidLoad
 {
@@ -75,6 +76,7 @@
 	if (!particleSystem) {
         particleSystem = [[ParticleSystem alloc] initWithTestData];
     }
+	self.physicsEngine = [[PhysicsEngine alloc] init];
 }
 
 - (void)initialLayout
@@ -124,6 +126,11 @@
 		newCenter = [self clampToView:newCenter];
 		[view setCenter:newCenter];
 		[panGR setTranslation:CGPointZero inView:view.superview];
+		
+		if (view.enabled) {
+			float duration = sqrt(pow(translation.x, 2) + pow(translation.y, 2));
+			[self stepWithDuration:duration];
+		}
 	}
 }
 
@@ -146,6 +153,30 @@
     result.x = MIN(limits.width, MAX(0, point.x));
     result.y = MIN(limits.height, MAX(0, point.y));
     return result;
+}
+
+- (void)stepWithDuration:(double)duration
+{
+	NSLog(@"stepWithDuration");
+	double durationScale = 0.01;
+	double scaledDuration = durationScale * duration;
+	for (ParticleModel *dust in particleSystem.dustParticles) {
+		DustView *dustView = [dustViewForParticle objectForKey:dust.name];
+		CGPoint dustCenter = dustView.center;
+		
+		CGPoint delta = CGPointZero;
+		for (ParticleModel *magnet in particleSystem.magnetParticles) {
+			MagnetView *magnetView = [magnetViewForParticle objectForKey:magnet.name];
+			CGPoint magnetCenter = magnetView.center;
+			double attraction = [self.physicsEngine attractionBetweenSource:magnet andTarget:dust];
+			delta = CGPointMake(delta.x + attraction * (magnetCenter.x - dustCenter.x),
+								delta.y + attraction * (magnetCenter.y - dustCenter.y));
+		}
+		
+		dustCenter = CGPointMake(dustCenter.x + scaledDuration * delta.x, dustCenter.y + scaledDuration * delta.y);
+		dustCenter = [self clampToView:dustCenter];
+		dustView.center = dustCenter;
+	}
 }
 
 

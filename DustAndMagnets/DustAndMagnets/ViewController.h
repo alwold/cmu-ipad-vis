@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ParticleSystem.h"
+#import "PhysicsEngine.h"
 
 @interface ViewController : UIViewController
 {
@@ -19,6 +20,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIView *boardView;
+@property (nonatomic, retain) PhysicsEngine *physicsEngine;
 
 - (void)initializeModel;
 - (void)initialLayout;
