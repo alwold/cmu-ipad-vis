@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" id="f65-NL-ynO">
                                 <rect key="frame" x="20" y="20" width="710" height="710"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fl8-BX-CYu">
                                 <rect key="frame" x="932" y="691" width="72" height="37"/>
