@@ -13,10 +13,6 @@
 #define MAGNET_SIZE 50
 #define DUST_SIZE 10
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
 @synthesize boardView;
