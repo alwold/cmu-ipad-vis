@@ -20,6 +20,7 @@
 		883F7BF0155B237700E2DDDA /* ParticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BEF155B237700E2DDDA /* ParticleView.m */; };
 		883F7BF3155B269B00E2DDDA /* MagnetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BF2155B269B00E2DDDA /* MagnetView.m */; };
 		883F7BF6155B276400E2DDDA /* DustView.m in Sources */ = {isa = PBXBuildFile; fileRef = 883F7BF5155B276400E2DDDA /* DustView.m */; };
+		884B5971155C31C2004CB7D4 /* PhysicsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B5970155C31C2004CB7D4 /* PhysicsEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		883F7BF2155B269B00E2DDDA /* MagnetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnetView.m; sourceTree = "<group>"; };
 		883F7BF4155B276400E2DDDA /* DustView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DustView.h; sourceTree = "<group>"; };
 		883F7BF5155B276400E2DDDA /* DustView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DustView.m; sourceTree = "<group>"; };
+		884B596F155C31C2004CB7D4 /* PhysicsEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsEngine.h; sourceTree = "<group>"; };
+		884B5970155C31C2004CB7D4 /* PhysicsEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				883F7BEF155B237700E2DDDA /* ParticleView.m */,
 				883F7BDD155B1A4A00E2DDDA /* ViewController.h */,
 				883F7BDE155B1A4A00E2DDDA /* ViewController.m */,
+				884B596F155C31C2004CB7D4 /* PhysicsEngine.h */,
+				884B5970155C31C2004CB7D4 /* PhysicsEngine.m */,
 				883F7BF1155B269B00E2DDDA /* MagnetView.h */,
 				883F7BF2155B269B00E2DDDA /* MagnetView.m */,
 				883F7BF4155B276400E2DDDA /* DustView.h */,
@@ -193,6 +198,7 @@
 				883F7BF0155B237700E2DDDA /* ParticleView.m in Sources */,
 				883F7BF3155B269B00E2DDDA /* MagnetView.m in Sources */,
 				883F7BF6155B276400E2DDDA /* DustView.m in Sources */,
+				884B5971155C31C2004CB7D4 /* PhysicsEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +312,7 @@
 				883F7BE4155B1A4A00E2DDDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
