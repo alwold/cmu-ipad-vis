@@ -8,11 +8,32 @@
 
 #import "ParticleModel.h"
 
+@interface ParticleModel ()
+@property (nonatomic, retain) NSMutableDictionary *strengthByAttribute;
+@end
+
 @implementation ParticleModel
 
 @synthesize name;
 @synthesize strengthByAttribute;
 @synthesize attributes;
 @synthesize enabled;
+
+- (ParticleModel*)initWithName:(NSString*)inName strengthByAttribute:(NSMutableDictionary*)inStrengthByAttribute
+{
+    self = [super init];
+    if (self) {
+        self.name = inName;
+        self.strengthByAttribute = inStrengthByAttribute ? inStrengthByAttribute : [NSMutableDictionary dictionary];
+        self.enabled = YES;
+    }
+    return self;
+}
+
++ (ParticleModel*)particleModelWithName:(NSString*)inName  strengthByAttribute:(NSMutableDictionary*)inStrengthByAttribute
+{
+    ParticleModel *result = [[ParticleModel alloc] initWithName:inName strengthByAttribute:inStrengthByAttribute];
+    return result;
+}
 
 @end

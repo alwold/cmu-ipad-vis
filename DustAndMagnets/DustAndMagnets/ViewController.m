@@ -10,6 +10,9 @@
 #import "MagnetView.h"
 #import "DustView.h"
 
+#define MAGNET_SIZE 50
+#define DUST_SIZE 10
+
 @interface ViewController ()
 
 @end
@@ -22,7 +25,7 @@
 {
     [super viewDidLoad];
 	
-//	[self initializeModel];
+	[self initializeModel];
 	
 	magnetViewForParticle = [NSMutableDictionary dictionary];
 	dustViewForParticle = [NSMutableDictionary dictionary];
@@ -46,7 +49,7 @@
 		[self.boardView addSubview:dustView];
 	}];
 	
-//	[self initialLayout];
+	[self initialLayout];
 }
 
 - (void)viewDidUnload
@@ -58,6 +61,28 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+- (void)initializeModel
+{
+	if (!particleSystem) {
+        particleSystem = [[ParticleSystem alloc] initWithTestData];
+    }
+}
+
+- (void)initialLayout
+{
+	// Initial sizes.
+    [particleSystem.magnetParticles enumerateObjectsUsingBlock:^(ParticleModel *magnet, NSUInteger magnetIdx, BOOL *stop) {
+        UIView *view = [magnetViewForParticle objectForKey:magnet.name];
+        view.frame = CGRectMake(0, 0, MAGNET_SIZE, MAGNET_SIZE);
+    }];
+	
+    [particleSystem.dustParticles enumerateObjectsUsingBlock:^(ParticleModel *dust, NSUInteger dustIdx, BOOL *stop) {
+        UIView *view = [dustViewForParticle objectForKey:dust.name];
+        view.frame = CGRectMake(0, 0, DUST_SIZE, DUST_SIZE);
+    }];
+
 }
 
 @end

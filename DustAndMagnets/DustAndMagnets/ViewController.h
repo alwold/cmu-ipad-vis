@@ -19,4 +19,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIView *boardView;
+
+- (void)initializeModel;
+- (void)initialLayout;
 @end

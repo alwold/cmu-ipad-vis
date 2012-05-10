@@ -21,18 +21,49 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.baseColor = UIColor.redColor;
+        self.disabledColor = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.6];
+        self.backgroundColor = self.baseColor;
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(0., 0., frame.size.width, frame.size.height)];
+        self.label.clipsToBounds = NO;
+        self.label.textAlignment = UITextAlignmentCenter;
+        self.label.textColor = UIColor.whiteColor;
+        self.label.backgroundColor = UIColor.clearColor;
+        [self addSubview:self.label];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)updateRendering
 {
-    // Drawing code
+    self.backgroundColor = self.effectiveColor;
 }
-*/
+
+- (void)setEnabled:(BOOL)inEnabled
+{
+    self.particle.enabled = inEnabled;
+    [self updateRendering];
+}
+
+- (BOOL)enabled
+{
+    return self.particle.enabled;
+}
+
+- (UIColor*)effectiveColor
+{
+    return self.particle.enabled ? self.baseColor : self.disabledColor;
+}
+
+- (void)setTextLabel:(NSString *)text
+{
+    self.label.text = text;
+    CGRect labelFrame = self.label.frame;
+    CGSize desiredSize = [text sizeWithFont:self.label.font];
+    labelFrame.size = desiredSize;
+    self.label.frame = labelFrame;
+    self.label.center = self.center;
+}
+
 
 @end

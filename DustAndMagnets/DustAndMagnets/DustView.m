@@ -12,6 +12,7 @@
 
 - (void)updateRendering
 {
+    self.backgroundColor = UIColor.clearColor;
 	[self setNeedsDisplay];
 }
 
@@ -19,7 +20,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self updateRendering];
     }
     return self;
 }

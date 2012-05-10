@@ -16,5 +16,8 @@
 
 - (id)initWithTestData;
 - (id)initWithRicherTestData;
+- (void)processDustParticles;
+- (NSMutableArray*)testMagnetModel;
+- (NSMutableArray*)testDustModel;
 
 @end
