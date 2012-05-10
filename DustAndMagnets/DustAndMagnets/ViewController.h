@@ -23,4 +23,5 @@
 - (void)initializeModel;
 - (void)initialLayout;
 - (void)handleMagnetPan:(UIPanGestureRecognizer*)panGR;
+- (IBAction)handleResetButton:(id)sender;
 @end

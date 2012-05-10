@@ -127,6 +127,12 @@
 	}
 }
 
+- (IBAction)handleResetButton:(id)sender {
+	[UIView animateWithDuration:1 animations:^() {
+		[self initialPositioning];
+	}];
+}
+
 - (void)handleMagnetTap:(UITapGestureRecognizer*)tapGR
 {
 	MagnetView *magnetView = (MagnetView *)tapGR.view;
