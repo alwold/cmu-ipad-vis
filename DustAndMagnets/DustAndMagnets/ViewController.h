@@ -22,4 +22,5 @@
 
 - (void)initializeModel;
 - (void)initialLayout;
+- (void)handleMagnetPan:(UIPanGestureRecognizer*)panGR;
 @end

@@ -41,6 +41,9 @@
 		[magnetView setTextLabel:magnet.name];
 		[magnetViewForParticle setValue:magnetView forKey:magnet.name];
 		[self.boardView addSubview:magnetView];
+		
+		[magnetView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMagnetTap:)]];
+		[magnetView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleMagnetPan:)]];
 	}];
 	
 	[particleSystem.dustParticles enumerateObjectsUsingBlock:^(ParticleModel *dust, NSUInteger idx, BOOL *stop) {
@@ -111,5 +114,33 @@
 	CGPoint position = CGPointMake(circleCenter.x + radius * cos(theta), circleCenter.y + radius * sin(theta));
     return position;
 }
+
+- (void)handleMagnetPan:(UIPanGestureRecognizer*)panGR
+{
+	if (panGR.state == UIGestureRecognizerStateBegan || panGR.state == UIGestureRecognizerStateChanged) {
+		ParticleView *view = (ParticleView *)panGR.view;
+		CGPoint translation = [panGR translationInView:view.superview];
+		CGPoint newCenter = CGPointMake(view.center.x + translation.x, view.center.y + translation.y);
+		newCenter = [self clampToView:newCenter];
+		[view setCenter:newCenter];
+		[panGR setTranslation:CGPointZero inView:view.superview];
+	}
+}
+
+- (void)handleMagnetTap:(UITapGestureRecognizer*)tapGR
+{
+	MagnetView *magnetView = (MagnetView *)tapGR.view;
+	magnetView.enabled = !magnetView.enabled;
+}
+
+- (CGPoint)clampToView:(CGPoint)point
+{
+    CGPoint result = point;
+    CGSize limits = self.boardView.bounds.size;
+    result.x = MIN(limits.width, MAX(0, point.x));
+    result.y = MIN(limits.height, MAX(0, point.y));
+    return result;
+}
+
 
 @end
