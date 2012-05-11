@@ -1,0 +1,20 @@
+[
+{
+"name": "Charmed",
+"charm": "1.0",
+"skill": "0",
+"wisdom": "0",
+},
+{
+"name": "Skilled",
+"charm": "0",
+"skill": "1.0",
+"wisdom": "0",
+},
+{
+"name": "Wise",
+"charm": "0",
+"skill": "0",
+"wisdom": "1.0",
+}
+]

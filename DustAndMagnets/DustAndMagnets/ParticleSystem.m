@@ -27,6 +27,67 @@
     return self;
 }
 
+- (id)initWithDataFilename:(NSString*)filename
+{
+	self = [super init];
+	if (self) {
+		self.dustParticles = [self dustModelWithJSON:[self JSONFromFile:filename]];
+		[self processDustParticles];
+		self.magnetParticles = [self magnetModelFromDustModel:self.dustParticles];
+	}
+	return self;
+}
+
+- (NSMutableArray *)dustModelWithJSON:(NSData*)json
+{
+	NSLog(@"json data: %@", json);
+	NSMutableArray *result = [NSMutableArray array];
+	NSError *error = nil;
+	NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:&error];
+	
+	if (!jsonArray) {
+		NSLog(@"Error parsing JSON: %@", json);
+	} else {
+		NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+		formatter.numberStyle = NSNumberFormatterDecimalStyle;
+		
+		for (NSDictionary *dustData in jsonArray) {
+			NSString *particleName = [dustData objectForKey:@"name"];
+			NSMutableDictionary *strengthByAttribute = [NSMutableDictionary dictionaryWithCapacity:dustData.count - 1];
+			
+			[dustData enumerateKeysAndObjectsUsingBlock:^(NSString *attributeName, NSString *stringValue, BOOL *stop) {
+				if (![attributeName isEqualToString:@"name"]) {
+					NSNumber *value = [formatter numberFromString:stringValue];
+					[strengthByAttribute setValue:value forKey:attributeName];
+				}
+			}];
+			[result addObject:[ParticleModel particleModelWithName:particleName strengthByAttribute:strengthByAttribute]];
+		}
+	}
+	return result;
+}
+
+- (NSMutableArray*)magnetModelFromDustModel:(NSArray*)dustModel
+{
+	NSMutableArray *magnetModel = [NSMutableArray arrayWithCapacity:self.knownAttributes.count];
+    for (NSString *attributeName in self.knownAttributes) {
+        [magnetModel addObject:[ParticleModel particleModelWithName:attributeName strengthByAttribute:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                                                                                       [NSNumber numberWithDouble:1.], attributeName,
+                                                                                                       nil]]];
+    }
+    return magnetModel;
+}
+
+- (NSData*)JSONFromFile:(NSString*)filename
+{
+	NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
+	NSError *error = nil;
+	NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+	NSData *jsonData = [contents dataUsingEncoding:NSUTF8StringEncoding];
+	return jsonData;
+}
+
+
 - (void)processDustParticles
 {
     NSMutableSet *dustAttributeNames = [NSMutableSet setWithCapacity:self.dustParticles.count];

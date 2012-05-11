@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSSet *knownAttributes;
 
 - (id)initWithTestData;
-- (id)initWithRicherTestData;
+- (id)initWithDataFilename:(NSString*)filename;
 - (void)processDustParticles;
 - (NSMutableArray*)testMagnetModel;
 - (NSMutableArray*)testDustModel;
