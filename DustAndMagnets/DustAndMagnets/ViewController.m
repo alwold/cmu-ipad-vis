@@ -74,7 +74,7 @@
 - (void)initializeModel
 {
 	if (!particleSystem) {
-        particleSystem = [[ParticleSystem alloc] initWithDataFilename:@"TestData2"];
+        particleSystem = [[ParticleSystem alloc] initWithDataFilename:@"CerealData"];
 		self.physicsEngine = [[PhysicsEngine alloc] init];
     }
 }
