@@ -40,7 +40,6 @@
 
 - (NSMutableArray *)dustModelWithJSON:(NSData*)json
 {
-	NSLog(@"json data: %@", json);
 	NSMutableArray *result = [NSMutableArray array];
 	NSError *error = nil;
 	NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:&error];

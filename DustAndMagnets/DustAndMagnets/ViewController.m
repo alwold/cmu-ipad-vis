@@ -160,7 +160,7 @@
 - (void)stepWithDuration:(double)duration
 {
 	NSLog(@"stepWithDuration");
-	double durationScale = 0.01;
+	double durationScale = 0.0001;
 	double scaledDuration = durationScale * duration;
 	for (ParticleModel *dust in particleSystem.dustParticles) {
 		DustView *dustView = [dustViewForParticle objectForKey:dust.name];
