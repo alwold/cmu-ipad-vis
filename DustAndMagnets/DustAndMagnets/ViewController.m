@@ -20,10 +20,22 @@
 #define DUST_LAYOUT_CENTER_Y 500
 #define DUST_LAYOUT_RADIUS 100
 
+@interface ViewController () 
+
+@property (nonatomic, retain) DustView *selectedDust;
+@property (nonatomic, assign) CGRect dustDataTableDesiredFrame;
+
+@end
+
 @implementation ViewController
 
 @synthesize boardView;
 @synthesize physicsEngine;
+@synthesize dustLabel;
+@synthesize dustDataTable;
+@synthesize dustDisplay;
+@synthesize selectedDust;
+@synthesize dustDataTableDesiredFrame;
 
 - (void)viewDidLoad
 {
@@ -54,14 +66,20 @@
 		dustView.label.hidden = YES;
 		[dustViewForParticle setValue:dustView forKey:dust.name];
 		[self.boardView addSubview:dustView];
+		
+		[dustView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDustTap:)]];
 	}];
 	
 	[self initialLayout];
 	[self initialPositioning];
+	dustDataTable.dataSource = self;
 }
 
 - (void)viewDidUnload
 {
+	[self setDustDataTable:nil];
+	[self setDustLabel:nil];
+	[self setDustDisplay:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -179,6 +197,85 @@
 		dustCenter = [self clampToView:dustCenter];
 		dustView.center = dustCenter;
 	}
+}
+
+- (void)handleDustTap:(UITapGestureRecognizer*)tapGR
+{
+	NSLog(@"handleDustTap");
+	DustView *dustView = (DustView*)tapGR.view;
+	[self selectDust:dustView];
+}
+
+- (void)resizeDustTable
+{
+	
+}
+
+- (void)selectDust:(DustView*)dustView
+{
+	NSLog(@"selectDust");
+	BOOL tappedSelected = self.selectedDust != nil && dustView == self.selectedDust;
+	if (tappedSelected || dustView == nil) {
+		[self.selectedDust highlight:NO];
+		self.selectedDust= nil;
+		self.dustDisplay.hidden = YES;
+	} else {
+		[self.selectedDust highlight:NO];
+		self.selectedDust = dustView;
+		[self.selectedDust highlight:YES];
+		NSLog(@"reload data");
+		[self.dustDataTable reloadData];
+		
+		[self performSelector:@selector(resizeDustTable) withObject:self afterDelay:0.];
+		self.dustLabel.text = dustView.particle.name;
+		self.dustDisplay.hidden = NO;
+	}
+	NSLog(@"selectDust done");
+}
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
+	NSLog(@"numberOfRows");
+	NSInteger numberOfRowsInSection = 0;
+	if (self.selectedDust) {
+		NSLog(@"a dust is selected");
+		ParticleModel *dustModel = self.selectedDust.particle;
+		numberOfRowsInSection = dustModel.strengthByAttribute.count;
+		NSLog(@"%d rows", numberOfRowsInSection);
+	}
+	return numberOfRowsInSection;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSLog(@"cellForRow %@", indexPath);
+	static NSString *cellIdentifier = @"Cell";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+	
+	if (self.selectedDust) {
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
+		}
+		ParticleModel *dustModel = self.selectedDust.particle;
+		NSArray *attributes = dustModel.attributes;
+		NSLog(@"attributes size: %d", attributes.count);
+		NSString *attribute =[attributes objectAtIndex:indexPath.row];
+		NSString *strength = @"";
+		NSLog(@"attribute: %@", attribute);
+		if (attribute) {
+			NSNumber *valueNum = [dustModel.strengthByAttribute objectForKey:attribute];
+			strength = [NSString stringWithFormat:@"%0.2f", valueNum.doubleValue];
+			
+			cell.textLabel.text = attribute;
+			cell.detailTextLabel.text = strength;
+		}
+	} else {
+		NSLog(@"attempted to create data display for %d when no dust selected", indexPath.row);
+		cell.textLabel.text = @"?";
+		cell.detailTextLabel.text = @"?";
+	}
+	
+	return cell;
 }
 
 

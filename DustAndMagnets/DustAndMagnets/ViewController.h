@@ -10,7 +10,7 @@
 #import "ParticleSystem.h"
 #import "PhysicsEngine.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDataSource>
 {
 	ParticleSystem *particleSystem;
 	
@@ -21,6 +21,9 @@
 
 @property (nonatomic, retain) IBOutlet UIView *boardView;
 @property (nonatomic, retain) PhysicsEngine *physicsEngine;
+@property (weak, nonatomic) IBOutlet UILabel *dustLabel;
+@property (weak, nonatomic) IBOutlet UITableView *dustDataTable;
+@property (weak, nonatomic) IBOutlet UIView *dustDisplay;
 
 - (void)initializeModel;
 - (void)initialLayout;

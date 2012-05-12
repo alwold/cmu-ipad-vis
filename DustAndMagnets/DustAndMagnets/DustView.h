@@ -11,4 +11,6 @@
 
 @interface DustView : ParticleView
 
+- (void)highlight:(BOOL)wantsHighlighting;
+
 @end

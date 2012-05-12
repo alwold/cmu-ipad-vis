@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -17,6 +18,7 @@
 
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
+@synthesize mapView = _mapView;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
@@ -57,10 +59,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self configureView];
+	AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+	NSLog(@"setting delegate map view: %@", self.mapView);
+	delegate.mapView = self.mapView;
 }
 
 - (void)viewDidUnload
 {
+	[self setMapView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
