@@ -24,6 +24,10 @@
 		88F0D872155DA26B00848751 /* TestData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D871155DA26B00848751 /* TestData2.json */; };
 		88F0D877155DA2D800848751 /* CerealData.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D876155DA2D800848751 /* CerealData.json */; };
 		88F0D87E155EE13000848751 /* ViewShaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F0D87D155EE13000848751 /* ViewShaker.m */; };
+		88F0D883155F0DA600848751 /* attract-arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D87F155F0DA500848751 /* attract-arrows.png */; };
+		88F0D884155F0DA600848751 /* magnet-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D880155F0DA500848751 /* magnet-icon.png */; };
+		88F0D885155F0DA600848751 /* radius-grow.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D881155F0DA500848751 /* radius-grow.png */; };
+		88F0D886155F0DA600848751 /* repel-arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D882155F0DA600848751 /* repel-arrows.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,10 @@
 		88F0D876155DA2D800848751 /* CerealData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CerealData.json; sourceTree = "<group>"; };
 		88F0D87C155EE13000848751 /* ViewShaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewShaker.h; sourceTree = "<group>"; };
 		88F0D87D155EE13000848751 /* ViewShaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewShaker.m; sourceTree = "<group>"; };
+		88F0D87F155F0DA500848751 /* attract-arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "attract-arrows.png"; sourceTree = "<group>"; };
+		88F0D880155F0DA500848751 /* magnet-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnet-icon.png"; sourceTree = "<group>"; };
+		88F0D881155F0DA500848751 /* radius-grow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radius-grow.png"; sourceTree = "<group>"; };
+		88F0D882155F0DA600848751 /* repel-arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repel-arrows.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,10 @@
 		883F7BCE155B1A4A00E2DDDA /* DustAndMagnets */ = {
 			isa = PBXGroup;
 			children = (
+				88F0D87F155F0DA500848751 /* attract-arrows.png */,
+				88F0D880155F0DA500848751 /* magnet-icon.png */,
+				88F0D881155F0DA500848751 /* radius-grow.png */,
+				88F0D882155F0DA600848751 /* repel-arrows.png */,
 				88F0D876155DA2D800848751 /* CerealData.json */,
 				88F0D871155DA26B00848751 /* TestData2.json */,
 				883F7BD7155B1A4A00E2DDDA /* AppDelegate.h */,
@@ -193,6 +205,10 @@
 				883F7BDC155B1A4A00E2DDDA /* MainStoryboard.storyboard in Resources */,
 				88F0D872155DA26B00848751 /* TestData2.json in Resources */,
 				88F0D877155DA2D800848751 /* CerealData.json in Resources */,
+				88F0D883155F0DA600848751 /* attract-arrows.png in Resources */,
+				88F0D884155F0DA600848751 /* magnet-icon.png in Resources */,
+				88F0D885155F0DA600848751 /* radius-grow.png in Resources */,
+				88F0D886155F0DA600848751 /* repel-arrows.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

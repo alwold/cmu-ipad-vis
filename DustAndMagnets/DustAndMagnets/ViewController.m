@@ -308,5 +308,7 @@
 - (IBAction)shakeOnce:(id)sender {
 	[self shakeDustUntilDoneWithMaxIterationCount:1];
 }
+- (IBAction)handleMagnetRepulsionChanged:(id)sender {
+}
 
 @end
