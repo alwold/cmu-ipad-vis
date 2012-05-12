@@ -49,32 +49,16 @@
                         <outlet property="connectButton" destination="OFj-uA-VFL" id="wUJ-1R-myo"/>
                         <outlet property="mapView" destination="txu-or-pVX" id="CbA-ns-3ES"/>
                         <outlet property="polygonButton" destination="yfs-31-6y2" id="hZw-Jr-tqV"/>
-                        <outlet property="tapGestureRecognizer" destination="cSW-tm-zmQ" id="f0V-z4-9bs"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="cSW-tm-zmQ">
                     <connections>
-                        <action selector="userTappedMap:" destination="2" id="1B1-WA-gQT"/>
+                        <action selector="userTappedMap:" destination="2" id="gBg-4y-EA7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearPoints:"/>
-                <relationship kind="action" name="connectPoints:"/>
-                <relationship kind="action" name="makePolygon:"/>
-                <relationship kind="action" name="userTappedMap:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="connectButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="polygonButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

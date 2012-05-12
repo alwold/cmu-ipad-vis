@@ -137,9 +137,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </mapView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="52"/>
-                    <connections>
-                        <outlet property="mapView" destination="bph-0W-5dN" id="Jqc-Z4-CfB"/>
-                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="432" y="686"/>
@@ -174,6 +171,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-390" y="686"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dateChanged:" candidateClass="UIDatePicker"/>
+                <relationship kind="action" name="startStopTimer:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

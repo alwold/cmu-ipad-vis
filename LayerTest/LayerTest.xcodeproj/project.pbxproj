@@ -128,7 +128,7 @@
 		88CB050C151B94E2009854C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = 88CB050F151B94E2009854C5 /* Build configuration list for PBXProject "LayerTest" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -280,7 +280,6 @@
 				88CB0535151B94E3009854C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

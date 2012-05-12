@@ -18,4 +18,6 @@
 
 - (double)attractionBetweenSource:(ParticleModel*)source andTarget:(ParticleModel*)target;
 
++ (void)testAttractions;
+
 @end

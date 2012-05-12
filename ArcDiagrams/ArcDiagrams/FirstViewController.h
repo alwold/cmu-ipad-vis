@@ -13,6 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 - (IBAction)loadPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-- (IBAction)analyzePressed:(id)sender;
 
 @end

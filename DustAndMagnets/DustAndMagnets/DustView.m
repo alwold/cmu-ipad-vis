@@ -33,9 +33,4 @@
 	CGContextFillPath(context);
 }
 
-- (void)highlight:(BOOL)wantsHighlighting
-{
-	self.label.hidden = !wantsHighlighting;
-}
-
 @end

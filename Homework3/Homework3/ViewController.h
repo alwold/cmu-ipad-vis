@@ -20,5 +20,4 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *connectButton;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *polygonButton;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 @end
