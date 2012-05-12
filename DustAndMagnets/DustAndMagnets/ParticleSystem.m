@@ -14,6 +14,9 @@
 @synthesize magnetParticles;
 @synthesize dustParticles;
 @synthesize knownAttributes;
+@synthesize dustMax;
+@synthesize dustMin;
+@synthesize dustThreshold;
 
 - (id)initWithTestData
 {

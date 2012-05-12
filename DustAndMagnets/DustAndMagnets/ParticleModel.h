@@ -13,8 +13,10 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain, readonly) NSMutableDictionary *strengthByAttribute;
 @property (nonatomic, readonly) NSArray *attributes;
+@property (nonatomic) double scaleFactor;
 @property (nonatomic, assign) BOOL enabled;
 
 - (ParticleModel *)initWithName:(NSString *)name strengthByAttribute:(NSMutableDictionary *)strengthByAttribute;
+- (double)strengthForAttribute:(NSString*)attribute;
 + (ParticleModel *)particleModelWithName:(NSString *)name strengthByAttribute:(NSMutableDictionary *)strengthByAttribute;
 @end

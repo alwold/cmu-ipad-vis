@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ParticleModel.h"
 
 @interface ParticleSystem : NSObject
 
 @property (nonatomic, retain) NSMutableArray *magnetParticles;
 @property (nonatomic, retain) NSMutableArray *dustParticles;
 @property (nonatomic, retain) NSSet *knownAttributes;
+@property (nonatomic, strong) ParticleModel *dustMin;
+@property (nonatomic, strong) ParticleModel *dustMax;
+@property (nonatomic, strong) ParticleModel *dustThreshold;
 
 - (id)initWithTestData;
 - (id)initWithDataFilename:(NSString*)filename;

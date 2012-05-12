@@ -17,6 +17,7 @@
 @synthesize name;
 @synthesize strengthByAttribute;
 @synthesize enabled;
+@synthesize scaleFactor;
 
 - (ParticleModel*)initWithName:(NSString*)inName strengthByAttribute:(NSMutableDictionary*)inStrengthByAttribute
 {
@@ -40,6 +41,11 @@
 {
     ParticleModel *result = [[ParticleModel alloc] initWithName:inName strengthByAttribute:inStrengthByAttribute];
     return result;
+}
+
+- (double)strengthForAttribute:(NSString *)attribute
+{
+	return 0;
 }
 
 @end
