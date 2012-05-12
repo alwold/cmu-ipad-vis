@@ -10,6 +10,7 @@
 #import "MagnetView.h"
 #import "DustView.h"
 #import "ParticleModel.h"
+#import "ViewShaker.h"
 
 #define MAGNET_SIZE 50
 #define DUST_SIZE 10
@@ -36,6 +37,7 @@
 @synthesize dustDisplay;
 @synthesize selectedDust;
 @synthesize dustDataTableDesiredFrame;
+@synthesize dustViews;
 
 - (void)viewDidLoad
 {
@@ -59,6 +61,7 @@
 		[magnetView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleMagnetPan:)]];
 	}];
 	
+	self.dustViews = [NSMutableArray arrayWithCapacity:particleSystem.dustParticles.count];
 	[particleSystem.dustParticles enumerateObjectsUsingBlock:^(ParticleModel *dust, NSUInteger idx, BOOL *stop) {
 		DustView *dustView = [[DustView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
 		dustView.particle = dust;
@@ -66,6 +69,7 @@
 		dustView.label.hidden = YES;
 		[dustViewForParticle setValue:dustView forKey:dust.name];
 		[self.boardView addSubview:dustView];
+		[self.dustViews addObject:dustView];
 		
 		[dustView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDustTap:)]];
 	}];
@@ -276,6 +280,17 @@
 	}
 	
 	return cell;
+}
+
+- (void)shakeDustUntilDoneWithMaxIterationCount:(NSUInteger)maxIterationCount
+{
+	ViewShaker *shaker = [[ViewShaker alloc] initUsingSquareBounds:YES];
+
+	BOOL done = NO;
+	for (NSUInteger iteration = 0; !done && iteration < maxIterationCount; ++iteration) {
+		BOOL changed = [shaker shakeViews:self.dustViews withinFrame:self.boardView.frame];
+		done = !changed;
+	}
 }
 
 

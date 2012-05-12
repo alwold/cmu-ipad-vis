@@ -23,6 +23,7 @@
 		884B5971155C31C2004CB7D4 /* PhysicsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B5970155C31C2004CB7D4 /* PhysicsEngine.m */; };
 		88F0D872155DA26B00848751 /* TestData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D871155DA26B00848751 /* TestData2.json */; };
 		88F0D877155DA2D800848751 /* CerealData.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F0D876155DA2D800848751 /* CerealData.json */; };
+		88F0D87E155EE13000848751 /* ViewShaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F0D87D155EE13000848751 /* ViewShaker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		884B5970155C31C2004CB7D4 /* PhysicsEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsEngine.m; sourceTree = "<group>"; };
 		88F0D871155DA26B00848751 /* TestData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestData2.json; sourceTree = "<group>"; };
 		88F0D876155DA2D800848751 /* CerealData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CerealData.json; sourceTree = "<group>"; };
+		88F0D87C155EE13000848751 /* ViewShaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewShaker.h; sourceTree = "<group>"; };
+		88F0D87D155EE13000848751 /* ViewShaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewShaker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				883F7BE6155B1E9B00E2DDDA /* ParticleModel.m */,
 				883F7BEB155B1F8700E2DDDA /* ParticleSystem.h */,
 				883F7BEC155B1F8700E2DDDA /* ParticleSystem.m */,
+				88F0D87C155EE13000848751 /* ViewShaker.h */,
+				88F0D87D155EE13000848751 /* ViewShaker.m */,
 			);
 			path = DustAndMagnets;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				883F7BF3155B269B00E2DDDA /* MagnetView.m in Sources */,
 				883F7BF6155B276400E2DDDA /* DustView.m in Sources */,
 				884B5971155C31C2004CB7D4 /* PhysicsEngine.m in Sources */,
+				88F0D87E155EE13000848751 /* ViewShaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

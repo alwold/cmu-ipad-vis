@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dustLabel;
 @property (weak, nonatomic) IBOutlet UITableView *dustDataTable;
 @property (weak, nonatomic) IBOutlet UIView *dustDisplay;
+@property (nonatomic, strong) NSMutableArray *dustViews;
 
 - (void)initializeModel;
 - (void)initialLayout;
