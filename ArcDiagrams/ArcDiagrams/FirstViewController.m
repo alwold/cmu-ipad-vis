@@ -29,6 +29,7 @@
     [self setUrlField:nil];
     [self setActivityIndicator:nil];
 	[self setWebView:nil];
+	[self setAnalyzePressed:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -56,5 +57,11 @@
 	// TODO signal error
 	NSLog(@"error was %@", error);
 	[activityIndicator stopAnimating];
+}
+- (IBAction)analyzePressed:(id)sender {
+	NSURL *url = [NSURL URLWithString:urlField.text];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	
+	request 
 }
 @end

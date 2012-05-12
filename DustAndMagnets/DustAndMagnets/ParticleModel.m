@@ -16,7 +16,6 @@
 
 @synthesize name;
 @synthesize strengthByAttribute;
-@synthesize attributes;
 @synthesize enabled;
 
 - (ParticleModel*)initWithName:(NSString*)inName strengthByAttribute:(NSMutableDictionary*)inStrengthByAttribute
@@ -28,6 +27,13 @@
         self.enabled = YES;
     }
     return self;
+}
+
+- (NSArray*)attributes
+{
+    NSArray *attributes = self.strengthByAttribute.allKeys;
+    NSArray *sortedAttributes = [attributes sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    return sortedAttributes;
 }
 
 + (ParticleModel*)particleModelWithName:(NSString*)inName  strengthByAttribute:(NSMutableDictionary*)inStrengthByAttribute

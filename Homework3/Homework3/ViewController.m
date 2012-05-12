@@ -17,6 +17,7 @@
 @implementation ViewController
 @synthesize connectButton;
 @synthesize polygonButton;
+@synthesize tapGestureRecognizer;
 @synthesize mapView;
 @synthesize coordinates;
 @synthesize coordinateCount;
@@ -36,6 +37,22 @@
 	self.mapView.delegate = self;
 	self.coordinates = malloc(sizeof(CLLocationCoordinate2D)*MAX_POINTS);
 	self.coordinateCount = 0;
+	
+	
+	CLLocationCoordinate2D location = CLLocationCoordinate2DMake(LATITUDE, LONGITUDE);
+	MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+	annotation.coordinate = location;
+	annotation.title = @"Hello";
+	[self.mapView addAnnotation:annotation];
+	NSLog(@"Number of gesture recognizers: %d", self.mapView.gestureRecognizers.count);
+	for (int i = 0; i < self.mapView.gestureRecognizers.count; i++) {
+		NSObject *recognizer = [self.mapView.gestureRecognizers objectAtIndex:i];
+		if (recognizer != self.tapGestureRecognizer && [recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+			NSLog(@"Adding recognizer that must fail: %@", [recognizer class]);
+			[self.tapGestureRecognizer requireGestureRecognizerToFail:recognizer];
+		}
+	}
+
 }
 
 - (void)viewDidUnload
@@ -43,6 +60,7 @@
 	[self setMapView:nil];
 	[self setConnectButton:nil];
 	[self setPolygonButton:nil];
+	[self setTapGestureRecognizer:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -81,6 +99,7 @@
 		CLLocationCoordinate2D location = [mapView convertPoint:point toCoordinateFromView:mapView];
 		MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 		annotation.coordinate = location;
+		annotation.title = @"Hello";
 		[self.mapView addAnnotation:annotation];
 		self.coordinates[coordinateCount++] = location;
 		if (coordinateCount > 1) {
@@ -90,7 +109,7 @@
 			[self.polygonButton setEnabled:YES];
 		}
 		NSLog(@"tap! %f %f", location.latitude, location.longitude);
-	 }
+	}
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {

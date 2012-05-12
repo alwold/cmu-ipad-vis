@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "AppDelegate.h"
+#import "Tweet.h"
 
 @implementation MasterViewController
 
@@ -47,6 +48,24 @@
 	NSError *error;
 	[self.fetchedResultsController performFetch:&error];
 	[self.tableView reloadData];
+	// add pins to map
+	AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+	NSLog(@"clear annotations");
+	[delegate.mapView removeAnnotations:delegate.mapView.annotations];
+	__block NSUInteger counter = 0;
+	NSLog(@"number of tweets: %d", self.fetchedResultsController.fetchedObjects.count);
+	[self.fetchedResultsController.fetchedObjects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		Tweet *tweet = (Tweet *)obj;
+		NSLog(@"tweet number: %d", counter++);
+		// for some reason this crashes if you let it do much over 100 tweets
+		if (counter < 100 && tweet.latitude && tweet.longitude) {
+			// add a pin
+			MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+			annotation.coordinate = CLLocationCoordinate2DMake([tweet.latitude doubleValue], [tweet.longitude doubleValue]);
+			NSLog(@"found a location: %@, %@", tweet.latitude, tweet.longitude);
+			[delegate.mapView addAnnotation:annotation];
+		}
+	}];
 }
 
 #pragma mark - View lifecycle
@@ -149,7 +168,7 @@
 	} else {
 		// start it
 		NSLog(@"starting. ref date = %@", self.datePicker.date);
-		self.dispatchSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
+		self.dispatchSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
 		dispatch_source_set_event_handler(self.dispatchSource, ^{
 			[self advanceDate];	
 		});
