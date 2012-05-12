@@ -293,5 +293,20 @@
 	}
 }
 
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent*)event
+{
+	if (event.type == UIEventSubtypeMotionShake) {
+		[self shakeDustUntilDoneWithMaxIterationCount:100];
+	}
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+	return YES;
+}
+
+- (IBAction)shakeOnce:(id)sender {
+	[self shakeDustUntilDoneWithMaxIterationCount:1];
+}
 
 @end
