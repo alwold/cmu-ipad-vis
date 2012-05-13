@@ -478,4 +478,14 @@
 	view.frame = newFrame;
 }
 
+
+- (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    UIView *viewForZooming = nil;
+    if (scrollView == self.boardScrollView) {
+        viewForZooming = self.boardView;
+    }
+    return viewForZooming;
+}
+
 @end
