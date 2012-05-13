@@ -37,6 +37,8 @@
 - (void)updateRendering
 {
     self.backgroundColor = self.effectiveColor;
+	self.label.center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0);
+	[self setNeedsDisplay];
 }
 
 - (void)setEnabled:(BOOL)inEnabled

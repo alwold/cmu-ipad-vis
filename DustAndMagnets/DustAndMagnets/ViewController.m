@@ -22,12 +22,15 @@
 #define DUST_LAYOUT_RADIUS 100.
 #define DUST_MIN_RADIUS 10.
 #define DUST_MAX_RADIUS 40.
+#define MAX_ZOOM_SCALE 4.
 
 @interface ViewController () 
 
 @property (nonatomic, retain) DustView *selectedDust;
 @property (nonatomic, strong) MagnetView *selectedMagnet;
 @property (nonatomic, assign) CGRect dustDataTableDesiredFrame;
+@property (nonatomic, assign) CGRect nativeBoardFrame;
+@property (nonatomic, assign) CGFloat boardScale;
 
 @end
 
@@ -48,13 +51,19 @@
 @synthesize repulsionMaxLabel;
 @synthesize magnetLabel;
 @synthesize radiusAttribute;
+@synthesize boardScrollView;
+@synthesize nativeBoardFrame;
+@synthesize boardScale;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
 	[self initializeModel];
-	
+
+	self.nativeBoardFrame = self.boardView.frame;
+    self.boardScale = 1.;
+
 	magnetViewForParticle = [NSMutableDictionary dictionary];
 	dustViewForParticle = [NSMutableDictionary dictionary];
 	
@@ -102,6 +111,7 @@
 	[self setRepulsionMinLabel:nil];
 	[self setRepulsionMaxLabel:nil];
 	[self setMagnetLabel:nil];
+	[self setBoardScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -139,14 +149,14 @@
 
 - (void)initialPositioning
 {
-	CGPoint magnetsCenter = CGPointMake(MAGNET_LAYOUT_CENTER_X, MAGNET_LAYOUT_CENTER_Y);
+	CGPoint magnetsCenter = CGPointMake(self.boardScale * MAGNET_LAYOUT_CENTER_X, self.boardScale * MAGNET_LAYOUT_CENTER_Y);
 	NSUInteger magnetCount = particleSystem.magnetParticles.count;
 	[particleSystem.magnetParticles enumerateObjectsUsingBlock:^(ParticleModel *magnet, NSUInteger idx, BOOL *stop) {
 		UIView *view = [magnetViewForParticle objectForKey:magnet.name];
 		view.center = [self pointOnCircleAtCenter:magnetsCenter radius:MAGNET_LAYOUT_RADIUS theta:(2*M_PI*idx/magnetCount)];
 	}];
 	
-	CGPoint dustCenter = CGPointMake(DUST_LAYOUT_CENTER_X, DUST_LAYOUT_CENTER_Y);
+	CGPoint dustCenter = CGPointMake(self.boardScale * DUST_LAYOUT_CENTER_X, self.boardScale * DUST_LAYOUT_CENTER_Y);
 	NSUInteger dustCount = particleSystem.dustParticles.count;
 	[particleSystem.dustParticles enumerateObjectsUsingBlock:^(ParticleModel *dust, NSUInteger idx, BOOL *stop) {
 		UIView *view = [dustViewForParticle objectForKey:dust.name];
@@ -433,6 +443,39 @@
 			}];
 		}
 	}];
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
+{
+	NSLog(@"scrollViewDidEndZooming");
+	self.boardView.transform = CGAffineTransformIdentity;
+	
+	CGRect newFrame = CGRectMake(0, 0, self.boardView.bounds.size.width * scale, self.boardView.bounds.size.height * scale);
+	self.boardView.frame = newFrame;
+	
+	self.boardScale *= scale;
+	self.boardScrollView.contentSize = self.boardView.bounds.size;
+	self.boardScrollView.zoomScale = 1.0;
+	self.boardScrollView.minimumZoomScale = self.nativeBoardFrame.size.height / self.boardView.bounds.size.height;
+	self.boardScrollView.maximumZoomScale = MAX_ZOOM_SCALE  / self.boardScale;
+	
+	NSLog(@"scaling by %f", scale);
+	[[magnetViewForParticle allValues] enumerateObjectsUsingBlock:^(MagnetView * magnetView, NSUInteger idx, BOOL *stop) {
+		[self scaleView:magnetView forScale:scale];
+		[magnetView updateRendering];
+	}];
+	
+	[self.dustViews enumerateObjectsUsingBlock:^(DustView *dustView, NSUInteger idx, BOOL *stop) {
+		[self scaleView:dustView forScale:scale];
+		[dustView updateRendering];
+	}];
+}
+
+- (void)scaleView:(UIView *)view forScale:(float)scale
+{
+	CGRect oldFrame = view.frame;
+	CGRect newFrame = CGRectMake(oldFrame.origin.x * scale, oldFrame.origin.y * scale, oldFrame.size.width * scale, oldFrame.size.height * scale);
+	view.frame = newFrame;
 }
 
 @end

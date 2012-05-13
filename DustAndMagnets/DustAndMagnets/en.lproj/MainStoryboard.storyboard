@@ -15,12 +15,6 @@
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="f65-NL-ynO" userLabel="boardView">
-                                <rect key="frame" x="20" y="20" width="710" height="710"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fl8-BX-CYu">
                                 <rect key="frame" x="932" y="691" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -164,12 +158,28 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" id="doL-Rt-gre">
+                                <rect key="frame" x="20" y="20" width="710" height="665"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="f65-NL-ynO" userLabel="boardView">
+                                        <rect key="frame" x="0.0" y="0.0" width="710" height="665"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                    </view>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="jST-c6-Ri3"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="boardScrollView" destination="doL-Rt-gre" id="sqx-kz-sZV"/>
                         <outlet property="boardView" destination="f65-NL-ynO" id="qb1-yr-hk3"/>
                         <outlet property="dustDataTable" destination="3Pf-dT-FmI" id="j7k-YG-1BA"/>
                         <outlet property="dustDisplay" destination="pep-mG-z4u" id="87r-Bq-FN6"/>
@@ -190,6 +200,24 @@
         <image name="magnet-icon.png" width="256" height="256"/>
         <image name="repel-arrows.png" width="23" height="22"/>
     </resources>
+    <classes>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handleResetButton:"/>
+                <relationship kind="outlet" name="boardScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="boardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="dustDataTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="dustDisplay" candidateClass="UIView"/>
+                <relationship kind="outlet" name="dustLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="magnetLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="magnitudeSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="repulsionMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="repulsionMinLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="repulsionSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>

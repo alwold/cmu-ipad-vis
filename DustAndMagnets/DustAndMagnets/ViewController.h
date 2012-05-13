@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *repulsionMaxLabel;
 @property (weak, nonatomic) IBOutlet UILabel *magnetLabel;
 @property (nonatomic, strong) NSString *radiusAttribute;
+@property (weak, nonatomic) IBOutlet UIScrollView *boardScrollView;
 
 - (void)initializeModel;
 - (void)initialLayout;
