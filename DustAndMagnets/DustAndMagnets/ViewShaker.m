@@ -30,7 +30,7 @@
 	CGPoint secondCenter = CGPointMake(CGRectGetMidX(secondFrame), CGRectGetMidY(secondFrame));
 	
 	CGPoint direction = CGPointMake(firstCenter.x - secondCenter.x, firstCenter.y - secondCenter.y);
-	CGFloat norm = sqrt(direction.x * direction.x - direction.y * direction.y);
+	CGFloat norm = sqrt(direction.x * direction.x + direction.y * direction.y);
 	
 	CGPoint normalizedDirection = CGPointMake(1, 0);
 	if (norm > 0.01) {
