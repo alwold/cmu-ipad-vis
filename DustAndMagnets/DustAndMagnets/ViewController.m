@@ -24,6 +24,7 @@
 @interface ViewController () 
 
 @property (nonatomic, retain) DustView *selectedDust;
+@property (nonatomic, strong) MagnetView *selectedMagnet;
 @property (nonatomic, assign) CGRect dustDataTableDesiredFrame;
 
 @end
@@ -36,8 +37,14 @@
 @synthesize dustDataTable;
 @synthesize dustDisplay;
 @synthesize selectedDust;
+@synthesize selectedMagnet;
 @synthesize dustDataTableDesiredFrame;
 @synthesize dustViews;
+@synthesize magnitudeSlider;
+@synthesize repulsionSlider;
+@synthesize repulsionMinLabel;
+@synthesize repulsionMaxLabel;
+@synthesize magnetLabel;
 
 - (void)viewDidLoad
 {
@@ -58,6 +65,9 @@
 		[self.boardView addSubview:magnetView];
 		
 		[magnetView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMagnetTap:)]];
+		UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMagnetDoubleTap:)];
+		doubleTap.numberOfTapsRequired = 2;
+		[magnetView addGestureRecognizer:doubleTap];
 		[magnetView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleMagnetPan:)]];
 	}];
 	
@@ -84,6 +94,11 @@
 	[self setDustDataTable:nil];
 	[self setDustLabel:nil];
 	[self setDustDisplay:nil];
+	[self setMagnitudeSlider:nil];
+	[self setRepulsionSlider:nil];
+	[self setRepulsionMinLabel:nil];
+	[self setRepulsionMaxLabel:nil];
+	[self setMagnetLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -162,12 +177,20 @@
 	}];
 }
 
+- (void)handleMagnetDoubleTap:(UITapGestureRecognizer*)tapGR
+{
+	NSLog(@"magnet double tapped");
+	MagnetView *magnetView = (MagnetView *)tapGR.view;
+	magnetView.enabled = !magnetView.enabled;
+	NSLog(@"magnet enabled status: %d", magnetView.enabled);
+}
+
 - (void)handleMagnetTap:(UITapGestureRecognizer*)tapGR
 {
 	NSLog(@"magnet tapped");
 	MagnetView *magnetView = (MagnetView *)tapGR.view;
-	magnetView.enabled = !magnetView.enabled;
-	NSLog(@"magnet enabled status: %d", magnetView.enabled);
+	self.selectedMagnet = magnetView;
+	[self reloadMagnetDisplay];
 }
 
 - (CGPoint)clampToView:(CGPoint)point
@@ -309,6 +332,35 @@
 	[self shakeDustUntilDoneWithMaxIterationCount:1];
 }
 - (IBAction)handleMagnetRepulsionChanged:(id)sender {
+}
+- (IBAction)handleMagnetMagnitudeChanged:(id)sender {
+}
+
+- (void)reloadMagnetDisplay
+{
+	if (self.selectedMagnet) {
+		MagnetView *magnetView = self.selectedMagnet;
+		ParticleModel *magnetModel = magnetView.particle;
+		
+		self.magnetLabel.text = magnetModel.name;
+		self.magnitudeSlider.value = magnetModel.scaleFactor;
+		
+		NSArray *magnetAttributes = [magnetModel attributes];
+		if (magnetAttributes.count > 0) {
+			NSString *attribute = (NSString*)[magnetAttributes objectAtIndex:0];
+			
+			double minStrength = [particleSystem.dustMin strengthForAttribute:attribute];
+			double maxStrength = [particleSystem.dustMax strengthForAttribute:attribute];
+			double thresholdStrength = [particleSystem.dustThreshold strengthForAttribute:attribute];
+			
+			self.repulsionSlider.minimumValue = minStrength;
+			self.repulsionSlider.maximumValue = maxStrength;
+			self.repulsionSlider.value = thresholdStrength;
+			
+			self.repulsionMinLabel.text = [NSString stringWithFormat:@"%3.1f", minStrength];
+			self.repulsionMaxLabel.text = [NSString stringWithFormat:@"%3.1f", maxStrength];
+		}
+	}
 }
 
 @end

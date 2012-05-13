@@ -90,6 +90,9 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" continuous="NO" id="QSJ-h6-Bvy">
                                         <rect key="frame" x="53" y="74" width="160" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="handleMagnetMagnitudeChanged:" destination="2" eventType="valueChanged" id="Q74-fi-aHS"/>
+                                        </connections>
                                     </slider>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="magnet-icon.png" id="hGL-4m-SyN">
                                         <rect key="frame" x="20" y="76" width="27" height="26"/>
@@ -112,31 +115,31 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.0" blue="0.035351606610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="handleMagnetRepulsionChanged:" destination="2" eventType="valueChanged" id="dP2-DP-ace"/>
+                                            <action selector="handleMagnetRepulsionChanged:" destination="2" eventType="valueChanged" id="Ues-Ne-oJf"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="1b3-eB-5R0">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="1b3-eB-5R0">
                                         <rect key="frame" x="55" y="45" width="36" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Bmi-3c-t0a">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Bmi-3c-t0a">
                                         <rect key="frame" x="175" y="45" width="36" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="X2R-gb-NaF">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="X2R-gb-NaF">
                                         <rect key="frame" x="175" y="104" width="36" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eCG-8B-Lns">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eCG-8B-Lns">
                                         <rect key="frame" x="55" y="104" width="36" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -156,6 +159,11 @@
                         <outlet property="dustDataTable" destination="3Pf-dT-FmI" id="j7k-YG-1BA"/>
                         <outlet property="dustDisplay" destination="pep-mG-z4u" id="87r-Bq-FN6"/>
                         <outlet property="dustLabel" destination="35D-8n-shR" id="JdA-eX-xhL"/>
+                        <outlet property="magnetLabel" destination="BIU-RN-GEg" id="PiH-Is-6rH"/>
+                        <outlet property="magnitudeSlider" destination="QSJ-h6-Bvy" id="PHb-RW-eUS"/>
+                        <outlet property="repulsionMaxLabel" destination="X2R-gb-NaF" id="ADc-9i-4HN"/>
+                        <outlet property="repulsionMinLabel" destination="eCG-8B-Lns" id="BsM-Yp-2uh"/>
+                        <outlet property="repulsionSlider" destination="SOW-fh-J0Z" id="bdT-Za-IUL"/>
                     </connections>
                 </viewController>
             </objects>
@@ -176,6 +184,10 @@
                 <relationship kind="outlet" name="dustDataTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="dustDisplay" candidateClass="UIView"/>
                 <relationship kind="outlet" name="dustLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="magnitudeSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="repulsionMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="repulsionMinLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="repulsionSlider" candidateClass="UISlider"/>
             </relationships>
         </class>
     </classes>

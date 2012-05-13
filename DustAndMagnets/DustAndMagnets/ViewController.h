@@ -25,6 +25,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *dustDataTable;
 @property (weak, nonatomic) IBOutlet UIView *dustDisplay;
 @property (nonatomic, strong) NSMutableArray *dustViews;
+@property (weak, nonatomic) IBOutlet UISlider *magnitudeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *repulsionSlider;
+@property (weak, nonatomic) IBOutlet UILabel *repulsionMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *repulsionMaxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *magnetLabel;
 
 - (void)initializeModel;
 - (void)initialLayout;
