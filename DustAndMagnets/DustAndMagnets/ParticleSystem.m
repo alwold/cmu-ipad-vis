@@ -95,6 +95,8 @@
     NSMutableSet *dustAttributeNames = [NSMutableSet setWithCapacity:self.dustParticles.count];
     ParticleModel *dustMin = [ParticleModel particleModelWithName:@"min" strengthByAttribute:[NSMutableDictionary dictionaryWithCapacity:self.dustParticles.count]];
     ParticleModel *dustMax = [ParticleModel particleModelWithName:@"max" strengthByAttribute:[NSMutableDictionary dictionaryWithCapacity:self.dustParticles.count]];
+	ParticleModel *dustThreshold = [ParticleModel particleModelWithName:@"threshold" strengthByAttribute:[NSMutableDictionary dictionaryWithCapacity:self.dustParticles.count]];
+
     
     for (ParticleModel *dust in self.dustParticles) {
         [dust.strengthByAttribute enumerateKeysAndObjectsUsingBlock:^(NSString *attributeName, NSNumber *value, BOOL *stop) {
@@ -107,6 +109,7 @@
                 NSNumber *maxNum = [dustMax.strengthByAttribute objectForKey:attributeName];
                 if (!minNum || curValue < minNum.doubleValue) {
                     [dustMin.strengthByAttribute setObject:[NSNumber numberWithDouble:curValue] forKey:attributeName];
+                    [dustThreshold.strengthByAttribute setObject:[NSNumber numberWithDouble:curValue] forKey:attributeName];
                 }
                 if (!maxNum || curValue > maxNum.doubleValue) {
                     [dustMax.strengthByAttribute setObject:[NSNumber numberWithDouble:curValue] forKey:attributeName];
@@ -115,6 +118,10 @@
         }];
     }
     self.knownAttributes = dustAttributeNames;
+
+    self.dustMin = dustMin;
+    self.dustMax = dustMax;
+    self.dustThreshold = dustThreshold;
 }
 
 - (NSMutableArray*)testMagnetModel

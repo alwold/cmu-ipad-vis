@@ -25,6 +25,7 @@
     if (self) {
         self.name = inName;
         self.strengthByAttribute = inStrengthByAttribute ? inStrengthByAttribute : [NSMutableDictionary dictionary];
+		self.scaleFactor = 1;
         self.enabled = YES;
     }
     return self;
@@ -45,7 +46,11 @@
 
 - (double)strengthForAttribute:(NSString *)attribute
 {
-	return 0;
+	double strength = 0;
+    if (attribute) {
+        strength = ((NSNumber*)[self.strengthByAttribute objectForKey:attribute]).doubleValue;
+    }
+    return strength;
 }
 
 @end

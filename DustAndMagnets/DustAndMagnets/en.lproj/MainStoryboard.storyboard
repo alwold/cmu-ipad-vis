@@ -87,7 +87,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" continuous="NO" id="QSJ-h6-Bvy">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="20" continuous="NO" id="QSJ-h6-Bvy">
                                         <rect key="frame" x="53" y="74" width="160" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
@@ -184,6 +184,7 @@
                 <relationship kind="outlet" name="dustDataTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="dustDisplay" candidateClass="UIView"/>
                 <relationship kind="outlet" name="dustLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="magnetLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="magnitudeSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="repulsionMaxLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="repulsionMinLabel" candidateClass="UILabel"/>

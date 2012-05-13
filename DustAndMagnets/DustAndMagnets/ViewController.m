@@ -113,6 +113,9 @@
 	if (!particleSystem) {
         particleSystem = [[ParticleSystem alloc] initWithDataFilename:@"CerealData"];
 		self.physicsEngine = [[PhysicsEngine alloc] init];
+        self.physicsEngine.targetMins = particleSystem.dustMin;
+        self.physicsEngine.targetMaxes = particleSystem.dustMax;
+        self.physicsEngine.targetThresholds = particleSystem.dustThreshold;
     }
 }
 
@@ -331,9 +334,19 @@
 - (IBAction)shakeOnce:(id)sender {
 	[self shakeDustUntilDoneWithMaxIterationCount:1];
 }
-- (IBAction)handleMagnetRepulsionChanged:(id)sender {
+- (IBAction)handleMagnetRepulsionChanged:(UISlider*)slider {
+    MagnetView *magnetView = self.selectedMagnet;
+    ParticleModel *magnetModel = magnetView.particle;
+	
+    NSArray *magnetAttributes = [magnetModel attributes];
+    if (magnetAttributes.count > 0) {  // should be 1
+        NSString *attribute = (NSString*)[magnetAttributes objectAtIndex:0];
+        NSNumber *thresholdStrengthNum = [NSNumber numberWithDouble:slider.value];
+        [particleSystem.dustThreshold.strengthByAttribute setObject:thresholdStrengthNum forKey:attribute];
+    }
 }
-- (IBAction)handleMagnetMagnitudeChanged:(id)sender {
+- (IBAction)handleMagnetMagnitudeChanged:(UISlider*)slider {
+    self.selectedMagnet.particle.scaleFactor = slider.value;
 }
 
 - (void)reloadMagnetDisplay
