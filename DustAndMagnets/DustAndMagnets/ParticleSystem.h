@@ -17,6 +17,7 @@
 @property (nonatomic, strong) ParticleModel *dustMin;
 @property (nonatomic, strong) ParticleModel *dustMax;
 @property (nonatomic, strong) ParticleModel *dustThreshold;
+@property (nonatomic, strong) NSArray *attributes;
 
 - (id)initWithTestData;
 - (id)initWithDataFilename:(NSString*)filename;

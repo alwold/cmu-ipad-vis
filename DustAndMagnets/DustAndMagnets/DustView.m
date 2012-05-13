@@ -38,4 +38,18 @@
 	self.label.hidden = !wantsHighlighting;
 }
 
+- (void)setRadius:(CGFloat)radius
+{
+    
+    CGRect newFrame = self.frame;
+    CGFloat oldDiameter = newFrame.size.width;
+    CGFloat deltaRadius = radius - oldDiameter / 2.;
+    CGFloat newDiameter = 2 * radius;
+    CGPoint oldOrigin = newFrame.origin;
+    newFrame = CGRectMake(oldOrigin.x - deltaRadius, oldOrigin.y - deltaRadius, newDiameter, newDiameter);
+    self.frame = newFrame;
+    self.label.center = CGPointMake(radius, radius);
+    [self updateRendering];
+}
+
 @end

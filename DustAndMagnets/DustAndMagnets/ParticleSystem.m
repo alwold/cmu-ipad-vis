@@ -17,6 +17,7 @@
 @synthesize dustMax;
 @synthesize dustMin;
 @synthesize dustThreshold;
+@synthesize attributes;
 
 - (id)initWithTestData
 {
@@ -118,6 +119,7 @@
         }];
     }
     self.knownAttributes = dustAttributeNames;
+    self.attributes = [self.knownAttributes.allObjects sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 
     self.dustMin = dustMin;
     self.dustMax = dustMax;

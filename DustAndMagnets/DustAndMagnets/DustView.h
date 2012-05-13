@@ -12,5 +12,5 @@
 @interface DustView : ParticleView
 
 - (void)highlight:(BOOL)wantsHighlighting;
-
+- (void)setRadius:(CGFloat)radius;
 @end

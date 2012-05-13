@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="pep-mG-z4u" userLabel="dustDisplay">
-                                <rect key="frame" x="738" y="20" width="266" height="479"/>
+                                <rect key="frame" x="738" y="20" width="266" height="406"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="35D-8n-shR">
@@ -49,7 +49,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Pf-dT-FmI">
-                                        <rect key="frame" x="0.0" y="30" width="266" height="449"/>
+                                        <rect key="frame" x="0.0" y="30" width="266" height="376"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -149,6 +149,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="Bj3-De-ZAm">
+                                <rect key="frame" x="738" y="434" width="266" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" id="Nf1-KA-alM">
+                                        <rect key="frame" x="0.0" y="-75" width="266" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2" id="mhi-dL-VA9"/>
+                                            <outlet property="delegate" destination="2" id="xfj-Hb-LOj"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -175,23 +190,6 @@
         <image name="magnet-icon.png" width="256" height="256"/>
         <image name="repel-arrows.png" width="23" height="22"/>
     </resources>
-    <classes>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleResetButton:"/>
-                <relationship kind="outlet" name="boardView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="dustDataTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="dustDisplay" candidateClass="UIView"/>
-                <relationship kind="outlet" name="dustLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="magnetLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="magnitudeSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="repulsionMaxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="repulsionMinLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="repulsionSlider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>

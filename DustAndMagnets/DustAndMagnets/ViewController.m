@@ -19,7 +19,9 @@
 #define MAGNET_LAYOUT_RADIUS 100
 #define DUST_LAYOUT_CENTER_X 200
 #define DUST_LAYOUT_CENTER_Y 500
-#define DUST_LAYOUT_RADIUS 100
+#define DUST_LAYOUT_RADIUS 100.
+#define DUST_MIN_RADIUS 10.
+#define DUST_MAX_RADIUS 40.
 
 @interface ViewController () 
 
@@ -45,6 +47,7 @@
 @synthesize repulsionMinLabel;
 @synthesize repulsionMaxLabel;
 @synthesize magnetLabel;
+@synthesize radiusAttribute;
 
 - (void)viewDidLoad
 {
@@ -374,6 +377,62 @@
 			self.repulsionMaxLabel.text = [NSString stringWithFormat:@"%3.1f", maxStrength];
 		}
 	}
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+	return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+	return 1 + particleSystem.knownAttributes.count;
+}
+
+- (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+	if (row == 0) {
+		self.radiusAttribute = nil;
+	} else {
+		self.radiusAttribute = [particleSystem.attributes objectAtIndex:row-1];
+	}
+	[self updateDustRadii];
+}
+
+- (NSString*)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+	if (row == 0) {
+		return @"(same)";
+	} else {
+		return [particleSystem.attributes objectAtIndex:row-1];
+	}
+}
+
+- (void)updateDustRadii
+{
+	[UIView animateWithDuration:0.5 animations:^() {
+		NSString *attribute = self.radiusAttribute;
+		
+		double minStrength = 0;
+		double maxStrength = 0;
+		if (attribute) {
+			minStrength = [particleSystem.dustMin strengthForAttribute:attribute];
+			maxStrength = [particleSystem.dustMax strengthForAttribute:attribute];
+		}
+		
+		if (maxStrength > minStrength) {
+			[self.dustViews enumerateObjectsUsingBlock:^(DustView* dustView, NSUInteger idx, BOOL *stop) {
+				double strength = [dustView.particle strengthForAttribute:attribute];
+				double fraction = (strength - minStrength) / (maxStrength - minStrength);
+				double diameter = DUST_MIN_RADIUS + fraction * (DUST_MAX_RADIUS - DUST_MIN_RADIUS);
+				[dustView setRadius:diameter/2.0];
+			}];
+		} else {
+			[self.dustViews enumerateObjectsUsingBlock:^(DustView *dustView, NSUInteger idx, BOOL *stop) {
+				[dustView setRadius:DUST_SIZE/2.0];
+			}];
+		}
+	}];
 }
 
 @end

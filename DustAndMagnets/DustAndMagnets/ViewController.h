@@ -10,7 +10,7 @@
 #import "ParticleSystem.h"
 #import "PhysicsEngine.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource>
+@interface ViewController : UIViewController <UITableViewDataSource, UIPickerViewDataSource>
 {
 	ParticleSystem *particleSystem;
 	
@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *repulsionMinLabel;
 @property (weak, nonatomic) IBOutlet UILabel *repulsionMaxLabel;
 @property (weak, nonatomic) IBOutlet UILabel *magnetLabel;
+@property (nonatomic, strong) NSString *radiusAttribute;
 
 - (void)initializeModel;
 - (void)initialLayout;
